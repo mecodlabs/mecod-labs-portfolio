@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lumina Lens — Heritage Darkroom & Applied AI Studio</title>
+  <meta name="description" content="Lumina Lens bridges heritage rangefinder tactile photography with modern applied AI vision and film emulation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="state-empty" id="app-body">
+  <!-- Top Navigation & Global Studio HUD -->
+  <header class="studio-header">
+    <div class="header-left">
+      <div class="brand-cluster" title="Lumina Lens — Heritage Darkroom Studio">
+        <span class="rangefinder-dot"></span>
+        <span class="brand-title">LUMINA <span class="brand-accent">LENS</span></span>
+        <span class="brand-badge">STUDIO MK IV</span>
+      </div>
+
+      <div class="file-actions">
+        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/avif,image/tiff,image/bmp" hidden>
+        <button id="btn-open-file" class="btn btn-secondary btn-sm" title="Open Image File (⌘O)">
+          <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 4a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5l-2-2H3zm0 2h4.586l2 2H17v6H3V6z" clip-rule="evenodd"/>
+          </svg>
+          <span>Open File</span>
+          <kbd class="kbd-hint">⌘O</kbd>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Samples Toolbar -->
+    <div class="header-center">
+      <div class="samples-pill-group" id="header-samples">
+        <span class="samples-label">Curated:</span>
+        <button class="sample-chip" data-sample="architecture" title="Load High Dynamic Range Architectural Geometry">
+          <span class="sample-dot" style="background: #38BDF8;"></span>
+          <span>Architecture</span>
+        </button>
+        <button class="sample-chip" data-sample="portrait" title="Load Warm Golden Hour Street Portrait">
+          <span class="sample-dot" style="background: #F59E0B;"></span>
+          <span>Golden Hour</span>
+        </button>
+        <button class="sample-chip" data-sample="tokyo" title="Load Cinematic Tokyo Rain Street Scene">
+          <span class="sample-dot" style="background: #EC4899;"></span>
+          <span>Tokyo Rain</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Studio Header Right: View Controls & Export Action -->
+    <div class="header-right">
+      <div class="hud-toggles">
+        <button id="btn-toggle-thirds" class="icon-toggle-btn" title="Toggle Rule-of-Thirds Grid (⌘G)">
+          <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V3zm2 4v2h4V7H5zm6 0v2h4V7h-4zm4 4h-4v2h4v-2zm-6 0H5v2h4v-2zm-4 4v-2h4v2H5zm6 0v-2h4v2h-4z" clip-rule="evenodd"/>
+          </svg>
+          <span class="tooltip">Rule-of-Thirds (⌘G)</span>
+        </button>
+
+        <button id="btn-toggle-spiral" class="icon-toggle-btn" title="Toggle Golden Ratio Spiral (⌘S)">
+          <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12zm0-10a4 4 0 100 8 4 4 0 000-8zm0 6a2 2 0 110-4 2 2 0 010 4z"/>
+          </svg>
+          <span class="tooltip">Golden Spiral (⌘S)</span>
+        </button>
+
+        <button id="btn-toggle-split" class="icon-toggle-btn" title="Split Before / After Comparison (\)">
+          <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v14a1 1 0 11-2 0V3a1 1 0 011-1zM3 5a2 2 0 012-2h3v14H5a2 2 0 01-2-2V5zm12-2a2 2 0 012 2v10a2 2 0 01-2 2h-3V3h3z" clip-rule="evenodd"/>
+          </svg>
+          <span class="tooltip">Before / After (\)</span>
+        </button>
+
+        <button id="btn-toggle-horizon" class="icon-toggle-btn" title="Toggle Horizon Level Guide">
+          <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M2 10a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zm8-6a1 1 0 011 1v2a1 1 0 11-2 0V5a1 1 0 011-1zm0 8a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z" clip-rule="evenodd"/>
+          </svg>
+          <span class="tooltip">Horizon Level</span>
+        </button>
+      </div>
+
+      <div class="divider-vertical"></div>
+
+      <button id="btn-export-studio" class="btn btn-primary btn-sm btn-export" title="Export Editorial Card (⌘E)">
+        <span>Export Studio</span>
+        <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="btn-mobile-sheet" class="btn btn-icon mobile-only" title="Toggle Controls">
+        <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Non-blocking Alert & Toast Notification Center -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Loading State Shimmer & Step Progress HUD -->
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="loading-card">
+      <div class="loading-ring">
+        <span class="spinner-dot"></span>
+      </div>
+      <div class="loading-content">
+        <h3 class="loading-title">Lumina Optical Engine</h3>
+        <p id="loading-step-text" class="loading-step">Decoding RAW pixel buffer...</p>
+        <div class="loading-bar">
+          <div id="loading-progress" class="loading-progress-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Studio Workspace Container -->
+  <main class="studio-workspace">
+    <!-- LEFT PANE: Film Stocks & Emulation Presets -->
+    <aside class="studio-sidebar sidebar-left" id="sidebar-presets">
+      <div class="panel-header">
+        <div class="panel-header-title">
+          <span class="panel-accent-mark">✦</span>
+          <h2>FILM EMULATION</h2>
+        </div>
+        <button id="btn-reset-presets" class="btn-text-subtle" title="Reset to natural un-emulated profile">Reset</button>
+      </div>
+
+      <div class="preset-scroll-tray">
+        <!-- Preset Item: Kodak Portra 400 -->
+        <div class="preset-card active" data-preset="portra400">
+          <div class="preset-badge" style="background: linear-gradient(135deg, #F59E0B, #B45309);">K400</div>
+          <div class="preset-details">
+            <div class="preset-name-row">
+              <span class="preset-name">Kodak Portra 400</span>
+              <span class="preset-tag">Warm / Soft</span>
+            </div>
+            <p class="preset-desc">Gentle highlight rolloff, golden skin tones, and organic micro-grain.</p>
+          </div>
+        </div>
+
+        <!-- Preset Item: Leica M-Monochrom -->
+        <div class="preset-card" data-preset="monochrom">
+          <div class="preset-badge" style="background: linear-gradient(135deg, #475569, #0F172A);">M-MONO</div>
+          <div class="preset-details">
+            <div class="preset-name-row">
+              <span class="preset-name">Leica M-Monochrom</span>
+              <span class="preset-tag">B&W / Silver</span>
+            </div>
+            <p class="preset-desc">Pure silver-halide contrast, deep obsidian black point, and sharp micro-texture.</p>
+          </div>
+        </div>
+
+        <!-- Preset Item: CineStill 800T -->
+        <div class="preset-card" data-preset="cinestill800t">
+          <div class="preset-badge" style="background: linear-gradient(135deg, #06B6D4, #EC4899);">800T</div>
+          <div class="preset-details">
+            <div class="preset-name-row">
+              <span class="preset-name">CineStill 800T</span>
+              <span class="preset-tag">Tungsten / Halation</span>
+            </div>
+            <p class="preset-desc">Teal shadow hues with cinematic neon halation on intense specular highlights.</p>
+          </div>
+        </div>
+
+        <!-- Preset Item: Fuji Velvia 50 -->
+        <div class="preset-card" data-preset="velvia50">
+          <div class="preset-badge" style="background: linear-gradient(135deg, #10B981, #2563EB);">V50</div>
+          <div class="preset-details">
+            <div class="preset-name-row">
+              <span class="preset-name">Fuji Velvia 50</span>
+              <span class="preset-tag">Vivid Chromatic</span>
+            </div>
+            <p class="preset-desc">Saturated chromatic primaries, crisp emerald greens, and high landscape impact.</p>
+          </div>
+        </div>
+
+        <!-- Preset Item: Natural / Neutral Studio -->
+        <div class="preset-card" data-preset="neutral">
+          <div class="preset-badge" style="background: linear-gradient(135deg, #64748B, #334155);">STD</div>
+          <div class="preset-details">
+            <div class="preset-name-row">
+              <span class="preset-name">Natural Studio</span>
+              <span class="preset-tag">Linear Clean</span>
+            </div>
+            <p class="preset-desc">Uncorrected neutral baseline. Pure camera sensor linear response.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Film Stock Fine-Tune Info -->
+      <div class="film-stock-notes">
+        <div class="info-row">
+          <span class="info-label">Color Science</span>
+          <span class="info-val">sRGB D65 Emulation</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Grain Mode</span>
+          <span class="info-val">Stochastic Silver-Halide</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">LUT Interpolation</span>
+          <span class="info-val">32-bit Floating Point</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CENTER PANE: Studio Viewport & Empty State Dropzone -->
+    <section class="studio-viewport-container" id="studio-viewport-container">
+      <!-- 1. EMPTY STATE VIEW -->
+      <div class="viewport-empty-state" id="empty-state">
+        <div class="empty-dropzone" id="empty-dropzone">
+          <div class="ambient-glow"></div>
+          <div class="empty-icon-wrap">
+            <svg class="empty-icon" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" class="dash-circle"/>
+              <circle cx="24" cy="24" r="10" stroke="var(--color-accent-amber)" stroke-width="2.5"/>
+              <circle cx="24" cy="24" r="4" fill="var(--color-accent-amber)"/>
+              <path d="M24 6V10M24 38V42M6 24H10M38 24H42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h1 class="empty-title">Bring Your Light into Focus</h1>
+          <p class="empty-subtitle">
+            Drag and drop high-resolution RAW, JPEG, or WebP files — or explore with curated studio samples.
+          </p>
+
+          <div class="empty-actions">
+            <button id="btn-empty-browse" class="btn btn-primary btn-md">
+              <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Select Photograph</span>
+            </button>
+            <span class="empty-or-divider">or explore studio gallery:</span>
+          </div>
+
+          <!-- Sample Photo Cards in Empty State -->
+          <div class="empty-samples-grid">
+            <div class="sample-card" data-sample="architecture">
+              <div class="sample-card-preview sample-thumb-arch"></div>
+              <div class="sample-card-info">
+                <span class="sample-card-name">Architectural Geometry</span>
+                <span class="sample-card-meta">Urban High Dynamic Range • 35mm</span>
+              </div>
+            </div>
+
+            <div class="sample-card" data-sample="portrait">
+              <div class="sample-card-preview sample-thumb-portrait"></div>
+              <div class="sample-card-info">
+                <span class="sample-card-name">Golden Hour Portrait</span>
+                <span class="sample-card-meta">Sunlit Rim Light & Bokeh • 50mm</span>
+              </div>
+            </div>
+
+            <div class="sample-card" data-sample="tokyo">
+              <div class="sample-card-preview sample-thumb-tokyo"></div>
+              <div class="sample-card-info">
+                <span class="sample-card-name">Tokyo Rain Street Scene</span>
+                <span class="sample-card-meta">Cinematic Neon Shadows • 28mm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Keyboard hints footer -->
+          <div class="empty-shortcuts">
+            <span class="shortcut-item"><kbd>⌘O</kbd> Open</span>
+            <span class="shortcut-item"><kbd>Space+Drag</kbd> Pan</span>
+            <span class="shortcut-item"><kbd>Scroll</kbd> Zoom</span>
+            <span class="shortcut-item"><kbd>⌘G</kbd> Thirds Grid</span>
+            <span class="shortcut-item"><kbd>\</kbd> Split Compare</span>
+            <span class="shortcut-item"><kbd>⌘E</kbd> Export</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. POPULATED STUDIO CANVAS VIEWPORT -->
+      <div class="canvas-viewport" id="canvas-viewport">
+        <!-- Interactive Canvas Stage -->
+        <div class="canvas-stage" id="canvas-stage">
+          <!-- Main rendering canvas -->
+          <canvas id="studio-canvas" class="studio-canvas"></canvas>
+          <!-- Dynamic Overlay canvas for Rule of thirds, Golden spiral, Horizon, Split line -->
+          <canvas id="overlay-canvas" class="overlay-canvas"></canvas>
+          
+          <!-- Interactive Before/After Split Drag Handle -->
+          <div id="split-slider-handle" class="split-slider-handle hidden">
+            <div class="split-line"></div>
+            <div class="split-knob" title="Drag to compare original vs graded">
+              <svg viewBox="0 0 16 16" fill="currentColor">
+                <path d="M5.5 3.5l-3 4.5 3 4.5V3.5zm5 0v9l3-4.5-3-4.5z"/>
+              </svg>
+            </div>
+            <div class="split-labels">
+              <span class="split-label-before">ORIGINAL</span>
+              <span class="split-label-after">LUMINA FILM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Top Canvas HUD (Overlays & View Modes) -->
+        <div class="canvas-hud-top">
+          <div class="hud-pill">
+            <button id="btn-zoom-fit" class="hud-btn active" title="Fit to screen">Fit</button>
+            <button id="btn-zoom-100" class="hud-btn" title="100% 1:1 Actual Pixels">100%</button>
+            <button id="btn-zoom-in" class="hud-btn" title="Zoom In (+)">+</button>
+            <button id="btn-zoom-out" class="hud-btn" title="Zoom Out (-)">−</button>
+            <span id="hud-zoom-value" class="hud-data">100%</span>
+          </div>
+
+          <div class="hud-pill" id="hud-tilt-pill">
+            <span class="hud-label">LEVEL</span>
+            <span id="hud-tilt-degree" class="hud-data" style="color: var(--color-accent-amber);">0.0°</span>
+          </div>
+        </div>
+
+        <!-- Floating Bottom Canvas HUD (Inspector Telemetry) -->
+        <div class="canvas-hud-bottom">
+          <div class="hud-telemetry-pill">
+            <div class="telemetry-item">
+              <span class="hud-label">DIMENSIONS</span>
+              <span id="hud-dimensions" class="hud-data">3840 × 2560 px</span>
+            </div>
+            <div class="telemetry-divider"></div>
+            <div class="telemetry-item">
+              <span class="hud-label">POINTER</span>
+              <span id="hud-coords" class="hud-data">X: 0 Y: 0</span>
+            </div>
+            <div class="telemetry-divider"></div>
+            <div class="telemetry-item">
+              <span class="hud-label">PIXEL COLOR</span>
+              <span class="pixel-color-chip" id="hud-pixel-chip"></span>
+              <span id="hud-pixel-rgb" class="hud-data">RGB(255, 255, 255)</span>
+              <span id="hud-pixel-hex" class="hud-data-subtle">#FFFFFF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT PANE: Precision Controls & Applied AI Vision -->
+    <aside class="studio-sidebar sidebar-right" id="sidebar-inspector">
+      <!-- Section 1: Live Real-time Histogram -->
+      <div class="inspector-section section-histogram">
+        <div class="section-header">
+          <span class="section-title">RGB & LUMINANCE HISTOGRAM</span>
+          <div class="histogram-channels">
+            <span class="chan-tag chan-r">R</span>
+            <span class="chan-tag chan-g">G</span>
+            <span class="chan-tag chan-b">B</span>
+            <span class="chan-tag chan-l">L</span>
+          </div>
+        </div>
+        <div class="histogram-canvas-wrap">
+          <canvas id="histogram-canvas" width="280" height="72"></canvas>
+          <div class="histogram-ev-ticks">
+            <span>-2 EV</span>
+            <span>-1 EV</span>
+            <span>0</span>
+            <span>+1 EV</span>
+            <span>+2 EV</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Applied AI Vision & Palette Extraction -->
+      <div class="inspector-section section-ai-vision">
+        <div class="section-header">
+          <div class="panel-header-title">
+            <span class="panel-accent-mark">⚡</span>
+            <span class="section-title">APPLIED AI VISION & PALETTE</span>
+          </div>
+          <button id="btn-reextract-ai" class="btn-text-subtle" title="Re-analyze image semantics">Re-scan</button>
+        </div>
+
+        <!-- 5-Swatch K-Means Color Palette Strip -->
+        <div class="palette-container">
+          <div class="palette-swatches-strip" id="palette-swatches">
+            <!-- Dynamically populated 5 swatches -->
+            <div class="swatch-chip" style="background-color: #D97706;" data-hex="#D97706" title="Click to copy #D97706">
+              <span class="swatch-hex">#D97706</span>
+            </div>
+            <div class="swatch-chip" style="background-color: #475569;" data-hex="#475569" title="Click to copy #475569">
+              <span class="swatch-hex">#475569</span>
+            </div>
+            <div class="swatch-chip" style="background-color: #F3F4F6;" data-hex="#F3F4F6" title="Click to copy #F3F4F6">
+              <span class="swatch-hex">#F3F4F6</span>
+            </div>
+            <div class="swatch-chip" style="background-color: #92400E;" data-hex="#92400E" title="Click to copy #92400E">
+              <span class="swatch-hex">#92400E</span>
+            </div>
+            <div class="swatch-chip" style="background-color: #1E293B;" data-hex="#1E293B" title="Click to copy #1E293B">
+              <span class="swatch-hex">#1E293B</span>
+            </div>
+          </div>
+          <div class="palette-footer-row">
+            <span class="palette-hint">Tap swatch to copy hex</span>
+            <button id="btn-copy-all-palette" class="btn-text-amber" title="Copy all hex values">Copy All</button>
+          </div>
+        </div>
+
+        <!-- Scene Semantic Vision Tags -->
+        <div class="vision-tags-container">
+          <span class="tags-group-label">SCENE UNDERSTANDING</span>
+          <div class="tags-cluster" id="vision-tags-cluster">
+            <span class="tag-pill" data-type="scene">Architecture</span>
+            <span class="tag-pill" data-type="lighting">Golden Hour</span>
+            <span class="tag-pill" data-type="atmosphere">Moody High-Contrast</span>
+            <span class="tag-pill" data-type="composition">Rule-of-Thirds Weighted</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Tactile Film & Color Controls -->
+      <div class="inspector-section section-sliders">
+        <div class="section-header">
+          <span class="section-title">TONE & EXPOSURE</span>
+          <button id="btn-reset-tone" class="btn-text-subtle" title="Reset Tone sliders to 0">Reset</button>
+        </div>
+
+        <!-- Exposure Slider -->
+        <div class="tactile-slider-group" data-param="exposure">
+          <div class="slider-label-row">
+            <span class="slider-name">EXPOSURE</span>
+            <span class="slider-detent-dot" title="Zero detent"></span>
+            <span class="slider-readout mono-readout" id="val-exposure">+0.00 EV</span>
+          </div>
+          <div class="slider-track-wrap zero-centered">
+            <div class="center-detent-mark"></div>
+            <input type="range" class="tactile-slider" id="slider-exposure" min="-2.0" max="2.0" step="0.05" value="0.0">
+          </div>
+        </div>
+
+        <!-- Contrast Slider -->
+        <div class="tactile-slider-group" data-param="contrast">
+          <div class="slider-label-row">
+            <span class="slider-name">CONTRAST</span>
+            <span class="slider-detent-dot"></span>
+            <span class="slider-readout mono-readout" id="val-contrast">0</span>
+          </div>
+          <div class="slider-track-wrap zero-centered">
+            <div class="center-detent-mark"></div>
+            <input type="range" class="tactile-slider" id="slider-contrast" min="-100" max="100" step="1" value="0">
+          </div>
+        </div>
+
+        <!-- Highlights Slider -->
+        <div class="tactile-slider-group" data-param="highlights">
+          <div class="slider-label-row">
+            <span class="slider-name">HIGHLIGHTS</span>
+            <span class="slider-detent-dot"></span>
+            <span class="slider-readout mono-readout" id="val-highlights">0</span>
+          </div>
+          <div class="slider-track-wrap zero-centered">
+            <div class="center-detent-mark"></div>
+            <input type="range" class="tactile-slider" id="slider-highlights" min="-100" max="100" step="1" value="0">
+          </div>
+        </div>
+
+        <!-- Shadows Slider -->
+        <div class="tactile-slider-group" data-param="shadows">
+          <div class="slider-label-row">
+            <span class="slider-name">SHADOWS</span>
+            <span class="slider-detent-dot"></span>
+            <span class="slider-readout mono-readout" id="val-shadows">0</span>
+          </div>
+          <div class="slider-track-wrap zero-centered">
+            <div class="center-detent-mark"></div>
+            <input type="range" class="tactile-slider" id="slider-shadows" min="-100" max="100" step="1" value="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Color Balance & Temperature -->
+      <div class="inspector-section section-sliders">
+        <div class="section-header">
+          <span class="section-title">WHITE BALANCE & COLOR</span>
+          <button id="btn-reset-color" class="btn-text-subtle" title="Reset Color sliders to 0">Reset</button>
+        </div>
+
+        <!-- Temperature Slider -->
+        <div class="tactile-slider-group" data-param="temperature">
+          <div class="slider-label-row">
+            <span class="slider-name">TEMPERATURE</span>
+            <span class="slider-detent-dot"></span>
+            <span class="slider-readout mono-readout" id="val-temperature">5400 K</span>
+          </div>
+          <div class="slider-track-wrap zero-centered temp-track">
+            <div class="center-detent-mark"></div>
+            <input type="range" class="tactile-slider" id="slider-temperature" min="-50" max="50" step="1" value="0">
+          </div>
+        </div>
+
+        <!-- Tint Slider -->
+        <div class="tactile-slider-group" data-param="tint">
+          <div class="slider-label-row">
+            <span class="slider-name">TINT</span>
+            <span class="slider-detent-dot"></span>
+            <span class="slider-readout mono-readout" id="val-tint">0</span>
+          </div>
+          <div class="slider-track-wrap zero-centered tint-track">
+            <div class="center-detent-mark"></div>
+            <input type="range" class="tactile-slider" id="slider-tint" min="-50" max="50" step="1" value="0">
+          </div>
+        </div>
+
+        <!-- Saturation Slider -->
+        <div class="tactile-slider-group" data-param="saturation">
+          <div class="slider-label-row">
+            <span class="slider-name">SATURATION</span>
+            <span class="slider-detent-dot"></span>
+            <span class="slider-readout mono-readout" id="val-saturation">0</span>
+          </div>
+          <div class="slider-track-wrap zero-centered">
+            <div class="center-detent-mark"></div>
+            <input type="range" class="tactile-slider" id="slider-saturation" min="-100" max="100" step="1" value="0">
+          </div>
+        </div>
+
+        <!-- Vibrance Slider -->
+        <div class="tactile-slider-group" data-param="vibrance">
+          <div class="slider-label-row">
+            <span class="slider-name">VIBRANCE</span>
+            <span class="slider-detent-dot"></span>
+            <span class="slider-readout mono-readout" id="val-vibrance">0</span>
+          </div>
+          <div class="slider-track-wrap zero-centered">
+            <div class="center-detent-mark"></div>
+            <input type="range" class="tactile-slider" id="slider-vibrance" min="-100" max="100" step="1" value="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Analog Optics & Film Grain Generator -->
+      <div class="inspector-section section-sliders">
+        <div class="section-header">
+          <span class="section-title">OPTICS & ANALOG GRAIN</span>
+          <button id="btn-reset-optics" class="btn-text-subtle" title="Reset Optics to 0">Reset</button>
+        </div>
+
+        <!-- Vignette Slider -->
+        <div class="tactile-slider-group" data-param="vignette">
+          <div class="slider-label-row">
+            <span class="slider-name">LENS VIGNETTE</span>
+            <span class="slider-readout mono-readout" id="val-vignette">0%</span>
+          </div>
+          <div class="slider-track-wrap">
+            <input type="range" class="tactile-slider" id="slider-vignette" min="0" max="100" step="1" value="0">
+          </div>
+        </div>
+
+        <!-- Film Grain Roughness / Intensity Slider -->
+        <div class="tactile-slider-group" data-param="grain">
+          <div class="slider-label-row">
+            <span class="slider-name">SILVER GRAIN ROUGHNESS</span>
+            <span class="slider-readout mono-readout" id="val-grain">18%</span>
+          </div>
+          <div class="slider-track-wrap">
+            <input type="range" class="tactile-slider" id="slider-grain" min="0" max="100" step="1" value="18">
+          </div>
+        </div>
+
+        <!-- Film Grain Particle Size -->
+        <div class="tactile-slider-group" data-param="grain-size">
+          <div class="slider-label-row">
+            <span class="slider-name">GRAIN PARTICLE SIZE</span>
+            <span class="slider-readout mono-readout" id="val-grain-size">24 µm</span>
+          </div>
+          <div class="slider-track-wrap">
+            <input type="range" class="tactile-slider" id="slider-grain-size" min="10" max="50" step="2" value="24">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Camera & Lens Telemetry (EXIF) -->
+      <div class="inspector-section section-exif">
+        <div class="section-header">
+          <span class="section-title">CAMERA TELEMETRY</span>
+          <span class="section-badge">RANGEFINDER EXIF</span>
+        </div>
+        <div class="exif-grid">
+          <div class="exif-cell">
+            <span class="exif-label">BODY</span>
+            <span class="exif-value" id="exif-body">Leica M11-P</span>
+          </div>
+          <div class="exif-cell">
+            <span class="exif-label">OPTICS</span>
+            <span class="exif-value" id="exif-lens">Summilux-M 35mm f/1.4</span>
+          </div>
+          <div class="exif-cell">
+            <span class="exif-label">APERTURE</span>
+            <span class="exif-value" id="exif-aperture">f/1.4</span>
+          </div>
+          <div class="exif-cell">
+            <span class="exif-label">SHUTTER</span>
+            <span class="exif-value" id="exif-shutter">1/500s</span>
+          </div>
+          <div class="exif-cell">
+            <span class="exif-label">ISO</span>
+            <span class="exif-value" id="exif-iso">ISO 200</span>
+          </div>
+          <div class="exif-cell">
+            <span class="exif-label">COLOR SPACE</span>
+            <span class="exif-value">sRGB D65</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- EDITORIAL EXPORT STUDIO MODAL DIALOG -->
+  <div id="export-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="export-modal-title">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title-cluster">
+          <span class="modal-dot"></span>
+          <h2 id="export-modal-title" class="modal-title">Editorial Presentation Studio</h2>
+        </div>
+        <button id="btn-close-modal" class="modal-close-btn" title="Close modal (Esc)">
+          <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Live High-Resolution Presentation Card Preview -->
+        <div class="export-preview-wrapper">
+          <div class="export-card-stage" id="export-card-stage">
+            <canvas id="export-card-canvas" class="export-card-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Export Customization Options & Controls -->
+        <div class="export-controls-pane">
+          <div class="export-control-group">
+            <label class="control-label">MATTE FRAME THEME</label>
+            <div class="btn-group-toggle" id="theme-matte-toggle">
+              <button class="btn-toggle active" data-theme="white">Leica Gallery White</button>
+              <button class="btn-toggle" data-theme="dark">Obsidian Darkroom</button>
+            </div>
+          </div>
+
+          <div class="export-control-group">
+            <label class="control-label">MATTE BORDER WIDTH</label>
+            <div class="btn-group-toggle" id="border-width-toggle">
+              <button class="btn-toggle" data-border="16">16px</button>
+              <button class="btn-toggle active" data-border="28">28px</button>
+              <button class="btn-toggle" data-border="44">44px</button>
+            </div>
+          </div>
+
+          <div class="export-control-group">
+            <label class="control-label">TELEMETRY & PALETTE STRIP</label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="chk-include-telemetry" checked>
+              <span>Include Lens Telemetry (f/1.4 • 1/500s • 35mm)</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="chk-include-palette" checked>
+              <span>Include 5-Swatch Harmonic Color Chips</span>
+            </label>
+          </div>
+
+          <div class="export-meta-preview">
+            <div class="meta-row">
+              <span class="meta-title">Output Format:</span>
+              <span class="meta-val">High-Res PNG (Lossless 24-bit RGB)</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-title">Color Profile:</span>
+              <span class="meta-val">sRGB Color Space</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-title">Render Target:</span>
+              <span class="meta-val" id="export-resolution-label">2560 × 1700 px (300 DPI)</span>
+            </div>
+          </div>
+
+          <div class="export-actions-row">
+            <button id="btn-download-card" class="btn btn-primary btn-lg full-width">
+              <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+              <span>Download Editorial Card (PNG)</span>
+            </button>
+
+            <div class="export-sub-actions">
+              <button id="btn-copy-css-vars" class="btn btn-secondary btn-sm" title="Copy color palette as CSS variables">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
+                  <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 2H9a3 3 0 01-3-2z"/>
+                </svg>
+                <span>Copy Palette CSS</span>
+              </button>
+
+              <button id="btn-download-image-only" class="btn btn-secondary btn-sm" title="Export only the edited photo without matte frame">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+                </svg>
+                <span>Photo Only (PNG)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Application Engine -->
+  <script src="app.js"></script>
+</body>
+</html>

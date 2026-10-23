@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MeCod Labs — Lean AI-Augmented Software Engineering Team</title>
+  <meta name="description" content="MeCod Labs is an agile, AI-augmented developer team delivering rapid, cost-optimized mobile and web software with strict zero-defect QA engineering.">
+  <meta name="theme-color" content="#FAFAFC">
+
+  <!-- Typography: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Sticky Frosted Glass Header
+       ======================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <!-- Monogram Brandmark Lockup -->
+      <a href="#hero" class="brand-lockup min-touch" aria-label="MeCod Labs Home">
+        <svg class="brand-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#4F46E5" fill-opacity="0.08"/>
+          <rect x="0.5" y="0.5" width="39" height="39" rx="9.5" stroke="#4F46E5" stroke-opacity="0.2"/>
+          <path d="M14 13L8 20L14 27" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 11L18 29" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="20" cy="20" r="2.5" fill="#10B981"/>
+          <path d="M26 13L32 20L26 27" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-me">Me</span><span class="brand-cod">Cod</span><span class="brand-labs">Labs</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#work" class="nav-link" data-i18n="nav_work">Work</a></li>
+          <li><a href="#pricing" class="nav-link" data-i18n="nav_pricing">Pricing</a></li>
+          <li><a href="#workflow" class="nav-link" data-i18n="nav_philosophy">Philosophy</a></li>
+          <li><a href="#stack" class="nav-link" data-i18n="nav_stack">Stack</a></li>
+          <li><a href="#team" class="nav-link" data-i18n="nav_team">Team</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Group -->
+      <div class="nav-actions">
+        <!-- Language Switcher Desktop -->
+        <div class="lang-switcher" id="lang-switcher-desktop" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang="vi" aria-label="Chuyển sang Tiếng Việt">VI</button>
+        </div>
+
+        <a href="#contact" class="btn-primary min-touch" id="btn-header-hire" data-i18n="nav_hire">Hire Studio</a>
+        <button class="hamburger-btn min-touch" id="btn-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-sheet">
+      <div class="drawer-header">
+        <div class="brand-lockup">
+          <svg class="brand-icon" width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="40" height="40" rx="10" fill="#4F46E5" fill-opacity="0.08"/>
+            <path d="M14 13L8 20L14 27" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 11L18 29" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="2.5" fill="#10B981"/>
+            <path d="M26 13L32 20L26 27" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-text">
+            <span class="brand-me">Me</span><span class="brand-cod">Cod</span><span class="brand-labs">Labs</span>
+          </span>
+        </div>
+        <button class="drawer-close min-touch" id="btn-drawer-close" aria-label="Close navigation menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="drawer-links">
+        <li><a href="#work" class="drawer-link min-touch" data-i18n="nav_work">Work</a></li>
+        <li><a href="#pricing" class="drawer-link min-touch" data-i18n="nav_pricing">Pricing</a></li>
+        <li><a href="#workflow" class="drawer-link min-touch" data-i18n="nav_philosophy">Philosophy</a></li>
+        <li><a href="#stack" class="drawer-link min-touch" data-i18n="nav_stack">Stack</a></li>
+        <li><a href="#team" class="drawer-link min-touch" data-i18n="nav_team">Team</a></li>
+        <li><a href="#contact" class="drawer-link min-touch" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+      <div class="drawer-lang-group">
+        <span class="drawer-lang-label" data-i18n="lang_label">Language:</span>
+        <div class="lang-switcher" id="lang-switcher-mobile" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang="vi">VI</button>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <a href="#contact" class="btn-primary min-touch" id="btn-drawer-hire" style="width: 100%;" data-i18n="nav_hire">Hire Studio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Hero Section
+       ======================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-glow-bg" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <!-- Real-time Availability Radar Pill -->
+      <div class="live-status-pill">
+        <div class="pulse-radar-container" aria-hidden="true">
+          <div class="pulse-radar-dot"></div>
+          <div class="pulse-radar-ping"></div>
+        </div>
+        <span class="live-status-text" data-i18n="hero_status">Available for Q4 2026 Contract Engagements</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-headline" data-i18n="hero_title">
+        A lean engineering team supercharged by AI to build <span class="text-gradient">faster, cost-optimized, and zero-defect software.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="hero-subheadline" data-i18n="hero_desc">
+        We pair senior software development with autonomous AI workflows and a rigorous quality process. Get enterprise-grade Flutter, Native Android, and Next.js applications delivered at startup speed with optimized budgets — zero agency overhead.
+      </p>
+
+      <!-- Dual CTAs & Quick Email -->
+      <div class="hero-cta-group">
+        <a href="#work" class="btn-primary min-touch" id="btn-hero-explore" data-i18n="hero_explore">
+          Explore Work ↓
+        </a>
+        <a href="#contact" class="btn-secondary min-touch" id="btn-hero-call" data-i18n="hero_call">
+          Book a 15-min Call ↗
+        </a>
+        <div class="quick-email-widget" title="Click to copy email">
+          <span class="quick-email-text">mecodlabs@gmail.com</span>
+          <button class="quick-email-btn min-touch btn-copy-action" data-email="mecodlabs@gmail.com" aria-label="Copy email mecodlabs@gmail.com">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Studio Proof Badges Metrics Bar -->
+      <div class="metrics-bar">
+        <div class="metric-item">
+          <span class="metric-value" data-i18n="metric_1_val">3x Faster</span>
+          <span class="metric-label" data-i18n="metric_1_lbl">AI-Augmented Velocity</span>
+          <span class="metric-desc" data-i18n="metric_1_desc">Accelerated sprint cycles &amp; rapid time-to-market</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-value" data-i18n="metric_2_val">40–60%</span>
+          <span class="metric-label" data-i18n="metric_2_lbl">Cost-Optimized Delivery</span>
+          <span class="metric-desc" data-i18n="metric_2_desc">Lean micro-team agility with zero agency bloat</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-value" data-i18n="metric_3_val">100%</span>
+          <span class="metric-label" data-i18n="metric_3_lbl">Strict QA &amp; Typesafe</span>
+          <span class="metric-desc" data-i18n="metric_3_desc">Zero-defect releases with automated E2E testing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ========================================================================
+       Featured Proof-of-Work Showcase
+       ======================================================================== -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow-badge">Featured Proof-of-Work</span>
+        <h2 class="section-title">Engineered for Impact</h2>
+        <p class="section-subtitle">
+          Production applications delivered with AI velocity, resilient cross-platform architecture, and battle-tested QA rigor.
+        </p>
+      </div>
+
+      <div class="proof-cards-grid">
+        <!-- Project 1: Lumina Lens (Featured Live Interactive Project) -->
+        <article class="showcase-card" id="card-lumina">
+          <div class="showcase-visual">
+            <div class="visual-mockup-frame">
+              <div class="frame-topbar">
+                <div class="frame-dots" aria-hidden="true">
+                  <div class="frame-dot red"></div>
+                  <div class="frame-dot yellow"></div>
+                  <div class="frame-dot green"></div>
+                </div>
+                <span class="frame-badge">lumina-engine-v1.4.0</span>
+              </div>
+              <div class="frame-preview-area">
+                <!-- Procedural Canvas Simulation Preview -->
+                <canvas id="lumina-hero-thumb" width="480" height="300" class="lumina-mini-canvas"></canvas>
+                <div class="frame-overlay-status">
+                  <span class="status-dot-green"></span>
+                  <span>WebGL / 60 FPS Engine Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-info">
+            <div class="showcase-category-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+              <span>Featured Flagship Application</span>
+            </div>
+            <h3 class="showcase-title">Lumina Lens</h3>
+            <p class="showcase-tagline">AI Creative Studio &amp; Next-Gen Visual Processing Engine</p>
+            <p class="showcase-desc">
+              High-performance client-side image processor built with HTML5 Canvas, WebGL shaders, real-time K-Means color clustering, and zero heavy dependencies. Operates at a silky 60fps with sub-16ms latency.
+            </p>
+
+            <div class="tech-badges-list">
+              <span class="tech-badge">HTML5 Canvas 60fps</span>
+              <span class="tech-badge">WebGL Shaders</span>
+              <span class="tech-badge">K-Means AI</span>
+              <span class="tech-badge">Web Workers</span>
+              <span class="tech-badge">Vanilla JS</span>
+            </div>
+
+            <div class="showcase-metrics">
+              <div class="showcase-metric-box">
+                <span class="showcase-metric-num">&lt; 16ms</span>
+                <span class="showcase-metric-label">Frame Render</span>
+              </div>
+              <div class="showcase-metric-box">
+                <span class="showcase-metric-num">0 Deps</span>
+                <span class="showcase-metric-label">Zero Bloat</span>
+              </div>
+              <div class="showcase-metric-box">
+                <span class="showcase-metric-num">5 Clusters</span>
+                <span class="showcase-metric-label">K-Means AI</span>
+              </div>
+            </div>
+
+            <div class="showcase-actions">
+              <button class="btn-primary min-touch" id="btn-open-lumina-modal" data-action="open-lumina-modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Launch Interactive Preview
+              </button>
+              <a href="lumina-lens/index.html" target="_blank" rel="noopener noreferrer" class="btn-secondary min-touch" id="btn-lumina-external">
+                View Live Demo ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: PulseFlow (Cross-Platform Mobile Suite) -->
+        <article class="showcase-card card-reversed" id="card-pulseflow">
+          <div class="showcase-visual">
+            <div class="visual-mockup-frame">
+              <div class="frame-topbar">
+                <div class="frame-dots" aria-hidden="true">
+                  <div class="frame-dot red"></div>
+                  <div class="frame-dot yellow"></div>
+                  <div class="frame-dot green"></div>
+                </div>
+                <span class="frame-badge">pulseflow.mobile.app</span>
+              </div>
+              <div class="frame-preview-area" style="background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);">
+                <svg width="340" height="210" viewBox="0 0 340 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Mobile Phone Outline -->
+                  <rect x="70" y="10" width="200" height="190" rx="16" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+                  <!-- Top notch / island -->
+                  <rect x="135" y="16" width="70" height="10" rx="5" fill="#0F172A"/>
+                  <!-- Header title -->
+                  <text x="90" y="48" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="12" font-weight="700">Team Pulse</text>
+                  <circle cx="245" cy="44" r="5" fill="#10B981"/>
+                  <!-- Wave graph -->
+                  <path d="M90 100 Q 115 65 140 100 T 190 100 T 240 80" stroke="#4F46E5" stroke-width="3" fill="none"/>
+                  <path d="M90 100 Q 115 65 140 100 T 190 100 T 240 80 L 240 130 L 90 130 Z" fill="url(#pulseGrad)" opacity="0.3"/>
+                  <!-- Metric Cards -->
+                  <rect x="90" y="138" width="68" height="42" rx="6" fill="#0F172A" stroke="#334155"/>
+                  <text x="98" y="156" fill="#94A3B8" font-family="Inter, sans-serif" font-size="8">SYNC RATE</text>
+                  <text x="98" y="172" fill="#10B981" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">99.98%</text>
+
+                  <rect x="172" y="138" width="78" height="42" rx="6" fill="#0F172A" stroke="#334155"/>
+                  <text x="180" y="156" fill="#94A3B8" font-family="Inter, sans-serif" font-size="8">LATENCY</text>
+                  <text x="180" y="172" fill="#38BDF8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">18.4 ms</text>
+
+                  <defs>
+                    <linearGradient id="pulseGrad" x1="165" y1="80" x2="165" y2="130" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#4F46E5"/>
+                      <stop offset="1" stop-color="#4F46E5" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="frame-overlay-status">
+                  <span class="status-dot-green"></span>
+                  <span>Supabase Realtime Sync • Flutter 3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-info">
+            <div class="showcase-category-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+              <span>Mobile Architecture</span>
+            </div>
+            <h3 class="showcase-title">PulseFlow</h3>
+            <p class="showcase-tagline">Realtime Health &amp; Team Workflow Cross-Platform Mobile Suite</p>
+            <p class="showcase-desc">
+              Production Flutter mobile application engineered with Native Android Kotlin Platform Channels for background sensor polling, offline-first SQLite synchronization, and Supabase BaaS realtime data replication.
+            </p>
+
+            <div class="tech-badges-list">
+              <span class="tech-badge">Flutter 3.x</span>
+              <span class="tech-badge">Native Android Kotlin</span>
+              <span class="tech-badge">Supabase Realtime</span>
+              <span class="tech-badge">Clean Architecture</span>
+              <span class="tech-badge">Offline-First</span>
+            </div>
+
+            <div class="showcase-metrics">
+              <div class="showcase-metric-box">
+                <span class="showcase-metric-num">60 FPS</span>
+                <span class="showcase-metric-label">Fluid Gestures</span>
+              </div>
+              <div class="showcase-metric-box">
+                <span class="showcase-metric-num">99.9%</span>
+                <span class="showcase-metric-label">Crash-Free</span>
+              </div>
+              <div class="showcase-metric-box">
+                <span class="showcase-metric-num">&lt; 20ms</span>
+                <span class="showcase-metric-label">P2P Sync</span>
+              </div>
+            </div>
+
+            <div class="showcase-actions">
+              <button class="btn-primary min-touch" id="btn-open-pulseflow-modal" data-action="open-pulseflow-modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                Inspect Architecture Blueprint
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: VividAura (Visual Identity & Art Direction) -->
+        <article class="showcase-card" id="card-vividaura">
+          <div class="showcase-visual">
+            <div class="visual-mockup-frame">
+              <div class="frame-topbar">
+                <div class="frame-dots" aria-hidden="true">
+                  <div class="frame-dot red"></div>
+                  <div class="frame-dot yellow"></div>
+                  <div class="frame-dot green"></div>
+                </div>
+                <span class="frame-badge">vivid-aura-design-system</span>
+              </div>
+              <div class="frame-preview-area" style="background: linear-gradient(135deg, #090D16 0%, #172554 100%);">
+                <svg width="340" height="210" viewBox="0 0 340 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Design Token Spec Cards -->
+                  <rect x="25" y="25" width="135" height="160" rx="10" fill="#1E293B" stroke="#475569" stroke-width="1.5"/>
+                  <rect x="35" y="38" width="115" height="32" rx="6" fill="#4F46E5"/>
+                  <text x="45" y="58" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10" font-weight="700">Primary Token</text>
+                  <rect x="35" y="80" width="115" height="32" rx="6" fill="#10B981"/>
+                  <text x="45" y="100" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10" font-weight="700">Cyber Mint AA</text>
+                  <text x="35" y="132" fill="#94A3B8" font-family="JetBrains Mono, monospace" font-size="9">8pt Spatial Grid</text>
+                  <text x="35" y="150" fill="#94A3B8" font-family="JetBrains Mono, monospace" font-size="9">120+ Components</text>
+                  <text x="35" y="168" fill="#38BDF8" font-family="JetBrains Mono, monospace" font-size="9">WCAG 2.1 AAA Pass</text>
+
+                  <!-- Phone Showcase Right -->
+                  <rect x="180" y="18" width="135" height="175" rx="14" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>
+                  <circle cx="247" cy="65" r="24" fill="#4F46E5" fill-opacity="0.2"/>
+                  <circle cx="247" cy="65" r="14" fill="#4F46E5"/>
+                  <rect x="200" y="105" width="95" height="12" rx="4" fill="#334155"/>
+                  <rect x="210" y="125" width="75" height="8" rx="4" fill="#1E293B"/>
+                  <rect x="205" y="145" width="85" height="28" rx="6" fill="#10B981"/>
+                  <text x="222" y="163" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="9" font-weight="700">Get Started</text>
+                </svg>
+                <div class="frame-overlay-status">
+                  <span class="status-dot-green"></span>
+                  <span>Figma Tokens • Apple HIG Compliant</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-info">
+            <div class="showcase-category-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <span>Design Ops &amp; Media</span>
+            </div>
+            <h3 class="showcase-title">VividAura</h3>
+            <p class="showcase-tagline">Visual Identity, Design System &amp; App Store Asset Pipeline</p>
+            <p class="showcase-desc">
+              Complete brand identity overhaul, 8pt spatial design tokens, tokenized component library in Figma, and high-converting 3D App Store screenshot pipeline resulting in measurable conversion uplift.
+            </p>
+
+            <div class="tech-badges-list">
+              <span class="tech-badge">Figma Design Tokens</span>
+              <span class="tech-badge">Apple HIG</span>
+              <span class="tech-badge">3D Device Mockups</span>
+              <span class="tech-badge">Design Ops</span>
+              <span class="tech-badge">WCAG AAA</span>
+            </div>
+
+            <div class="showcase-metrics">
+              <div class="showcase-metric-box">
+                <span class="showcase-metric-num">120+</span>
+                <span class="showcase-metric-label">Components</span>
+              </div>
+              <div class="showcase-metric-box">
+                <span class="showcase-metric-num">4.9 / 5</span>
+                <span class="showcase-metric-label">Aesthetic Score</span>
+              </div>
+              <div class="showcase-metric-box">
+                <span class="showcase-metric-num">+38%</span>
+                <span class="showcase-metric-label">App Store Uplift</span>
+              </div>
+            </div>
+
+            <div class="showcase-actions">
+              <button class="btn-primary min-touch" id="btn-open-vividaura-modal" data-action="open-vividaura-modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                View Design Case Study
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ========================================================================
+       Transparent Launch Sprints & Realistic Freelance Pricing
+       ======================================================================== -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow-badge" data-i18n="pricing_eyebrow">Transparent Launch Sprints</span>
+        <h2 class="section-title" data-i18n="pricing_title">Affordable, Fast, AI-Accelerated Engineering</h2>
+        <p class="section-subtitle" data-i18n="pricing_subtitle">
+          Straightforward sprint packages with zero agency markup. High-velocity development for early-stage founders and lean teams backed by 100% milestone-based escrow safety.
+        </p>
+      </div>
+
+      <!-- Sprint Packages Grid -->
+      <div class="pricing-grid">
+        <!-- Tier 1: Prototype Sprint -->
+        <div class="pricing-card" id="pricing-card-micro">
+          <div class="pricing-header">
+            <div class="pricing-tag-pill" data-i18n="tier_1_duration">3 – 5 Days Turnaround</div>
+            <h3 class="pricing-tier-name" data-i18n="tier_1_title">Rapid Prototype Sprint</h3>
+            <div class="pricing-price-box">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">450</span>
+              <span class="pricing-dash">–</span>
+              <span class="pricing-amount">850</span>
+              <span class="pricing-period" data-i18n="tier_1_fixed">/ fixed</span>
+            </div>
+            <p class="pricing-tier-desc" data-i18n="tier_1_desc">
+              Ideal for pitch deck demos, interactive canvas features, or rapid validation of high-risk ideas.
+            </p>
+          </div>
+          <ul class="pricing-features-list">
+            <li class="pricing-feature-item">
+              <span class="feature-check">✓</span>
+              <span data-i18n="tier_1_f1">1 Interactive Canvas, WebGL, or AI Feature</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check">✓</span>
+              <span data-i18n="tier_1_f2">Silky 60fps micro-interactions &amp; mobile responsive</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check">✓</span>
+              <span data-i18n="tier_1_f3">Automated Puppeteer E2E tests (Zero errors)</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check">✓</span>
+              <span data-i18n="tier_1_f4">Clean Git repo &amp; 100% code ownership</span>
+            </li>
+          </ul>
+          <div class="pricing-card-footer">
+            <button type="button" class="btn-pricing-action btn-secondary min-touch" data-tier="tier_micro" data-i18n="tier_1_btn">
+              Book Prototype Sprint →
+            </button>
+          </div>
+        </div>
+
+        <!-- Tier 2: Full MVP Sprint (Featured) -->
+        <div class="pricing-card pricing-card-featured" id="pricing-card-mvp">
+          <div class="pricing-badge-popular" data-i18n="tier_2_badge">★ Most Popular for Startups</div>
+          <div class="pricing-header">
+            <div class="pricing-tag-pill pill-featured" data-i18n="tier_2_duration">7 – 10 Days Turnaround</div>
+            <h3 class="pricing-tier-name" data-i18n="tier_2_title">Full MVP Launch Sprint</h3>
+            <div class="pricing-price-box">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">1,450</span>
+              <span class="pricing-dash">–</span>
+              <span class="pricing-amount">2,650</span>
+              <span class="pricing-period" data-i18n="tier_2_fixed">/ fixed</span>
+            </div>
+            <p class="pricing-tier-desc" data-i18n="tier_2_desc">
+              Transform your PRD into a complete, cross-platform product shipped to staging with zero defects.
+            </p>
+          </div>
+          <ul class="pricing-features-list">
+            <li class="pricing-feature-item">
+              <span class="feature-check check-featured">✓</span>
+              <span data-i18n="tier_2_f1">Full Flutter Mobile (iOS/Android) OR Next.js 15 Web</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check check-featured">✓</span>
+              <span data-i18n="tier_2_f2">Figma Design Tokens &amp; Apple HIG ergonomics</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check check-featured">✓</span>
+              <span data-i18n="tier_2_f3">Supabase BaaS (Auth, Realtime DB, Edge Functions)</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check check-featured">✓</span>
+              <span data-i18n="tier_2_f4">5 – 7 core user journeys &amp; database schema</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check check-featured">✓</span>
+              <span data-i18n="tier_2_f5">6-Pillar QA Audit sign-off (Zero console errors)</span>
+            </li>
+          </ul>
+          <div class="pricing-card-footer">
+            <button type="button" class="btn-pricing-action btn-primary min-touch" data-tier="tier_mvp" data-i18n="tier_2_btn">
+              Book Full MVP Sprint →
+            </button>
+          </div>
+        </div>
+
+        <!-- Tier 3: Dedicated Agile Pod -->
+        <div class="pricing-card" id="pricing-card-pod">
+          <div class="pricing-header">
+            <div class="pricing-tag-pill" data-i18n="tier_3_duration">Flexible Weekly Bandwidth</div>
+            <h3 class="pricing-tier-name" data-i18n="tier_3_title">Dedicated Agile Pod</h3>
+            <div class="pricing-price-box">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">22</span>
+              <span class="pricing-dash">–</span>
+              <span class="pricing-amount">32</span>
+              <span class="pricing-period" data-i18n="tier_3_rate">/ hr</span>
+            </div>
+            <div class="pricing-alt-rate" data-i18n="tier_3_alt">or $1,800/mo retainer</div>
+            <p class="pricing-tier-desc" data-i18n="tier_3_desc">
+              On-demand senior engineering pod that ships weekly iterations directly to your staging environment.
+            </p>
+          </div>
+          <ul class="pricing-features-list">
+            <li class="pricing-feature-item">
+              <span class="feature-check">✓</span>
+              <span data-i18n="tier_3_f1">20–30 hours/week dedicated design-dev bandwidth</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check">✓</span>
+              <span data-i18n="tier_3_f2">Daily async video &amp; Telegram/Slack updates</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check">✓</span>
+              <span data-i18n="tier_3_f3">Direct engineer access (Zero account manager bloat)</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="feature-check">✓</span>
+              <span data-i18n="tier_3_f4">Weekly production releases &amp; continuous test suite</span>
+            </li>
+          </ul>
+          <div class="pricing-card-footer">
+            <button type="button" class="btn-pricing-action btn-secondary min-touch" data-tier="tier_pod" data-i18n="tier_3_btn">
+              Discuss Dedicated Pod →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Early-Adopter Promise (Guarantees) -->
+      <div class="trust-guarantees-panel">
+        <h3 class="guarantees-heading" data-i18n="guarantee_title">The Early-Adopter Trust Guarantee</h3>
+        <p class="guarantees-subheading" data-i18n="guarantee_sub">
+          We are a hungry, high-velocity engineering pod building our public track record. Your investment is 100% de-risked.
+        </p>
+        <div class="guarantees-grid">
+          <div class="guarantee-card">
+            <div class="guarantee-icon-box">🛡️</div>
+            <h4 class="guarantee-name" data-i18n="g1_title">100% Milestone Escrow</h4>
+            <p class="guarantee-detail" data-i18n="g1_desc">
+              Funds are held safely in escrow. You release milestones only after verifying working software with 0 errors.
+            </p>
+          </div>
+          <div class="guarantee-card">
+            <div class="guarantee-icon-box">⚡</div>
+            <h4 class="guarantee-name" data-i18n="g2_title">3x Velocity via AI</h4>
+            <p class="guarantee-detail" data-i18n="g2_desc">
+              We leverage agentic AI coding workflows to eliminate boilerplate, delivering in days what agencies do in months.
+            </p>
+          </div>
+          <div class="guarantee-card">
+            <div class="guarantee-icon-box">🔧</div>
+            <h4 class="guarantee-name" data-i18n="g3_title">14-Day Free Bug Warranty</h4>
+            <p class="guarantee-detail" data-i18n="g3_desc">
+              Any defect or edge-case bug discovered within 14 days of launch is patched immediately at zero cost.
+            </p>
+          </div>
+          <div class="guarantee-card">
+            <div class="guarantee-icon-box">📦</div>
+            <h4 class="guarantee-name" data-i18n="g4_title">Full IP &amp; Clean Git</h4>
+            <p class="guarantee-detail" data-i18n="g4_desc">
+              You own 100% of the intellectual property, clean Git history, CI/CD scripts, and architecture documentation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why MeCod Labs vs Traditional Options Comparison Table -->
+      <div class="comparison-panel">
+        <h3 class="comparison-heading" data-i18n="comp_title">How MeCod Labs Compares</h3>
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th data-i18n="comp_th_metric">Metric / Dimension</th>
+                <th class="col-agency" data-i18n="comp_th_agency">Traditional Agency</th>
+                <th class="col-solo" data-i18n="comp_th_solo">Solo Freelancer Bidders</th>
+                <th class="col-mecod" data-i18n="comp_th_mecod">MeCod Labs Pod</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label" data-i18n="comp_r1_lbl">Turnaround Speed</td>
+                <td data-i18n="comp_r1_agency">2 – 3 Months (Slow)</td>
+                <td data-i18n="comp_r1_solo">Unpredictable (High ghosting risk)</td>
+                <td class="cell-highlight" data-i18n="comp_r1_mecod"><strong>3 – 10 Days (AI-Augmented)</strong></td>
+              </tr>
+              <tr>
+                <td class="row-label" data-i18n="comp_r2_lbl">Typical MVP Cost</td>
+                <td data-i18n="comp_r2_agency">$15,000 – $30,000+</td>
+                <td data-i18n="comp_r2_solo">$2,000 – $4,000</td>
+                <td class="cell-highlight" data-i18n="comp_r2_mecod"><strong>$1,450 – $2,650 (Introductory)</strong></td>
+              </tr>
+              <tr>
+                <td class="row-label" data-i18n="comp_r3_lbl">Communication</td>
+                <td data-i18n="comp_r3_agency">4 layers of sales reps &amp; PMs</td>
+                <td data-i18n="comp_r3_solo">Hit or miss, timezone friction</td>
+                <td class="cell-highlight" data-i18n="comp_r3_mecod"><strong>Direct to Senior Design-Engineer</strong></td>
+              </tr>
+              <tr>
+                <td class="row-label" data-i18n="comp_r4_lbl">Quality &amp; Testing</td>
+                <td data-i18n="comp_r4_agency">Manual checks, extra QA billing</td>
+                <td data-i18n="comp_r4_solo">Rarely any automated testing</td>
+                <td class="cell-highlight" data-i18n="comp_r4_mecod"><strong>6-Pillar QA + E2E Suites (0 Errors)</strong></td>
+              </tr>
+              <tr>
+                <td class="row-label" data-i18n="comp_r5_lbl">Modern Tech Stack</td>
+                <td data-i18n="comp_r5_agency">Legacy bloated frameworks</td>
+                <td data-i18n="comp_r5_solo">Basic PHP / WordPress / Templates</td>
+                <td class="cell-highlight" data-i18n="comp_r5_mecod"><strong>Flutter 3, Next.js, Supabase, AI</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Filterable Technology Matrix
+       ======================================================================== -->
+  <section class="section" id="stack" style="background-color: var(--bg-surface-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow-badge">High-Velocity Arsenal</span>
+        <h2 class="section-title">Full-Spectrum Modern Tech Stack</h2>
+        <p class="section-subtitle">
+          Battle-tested modern stacks optimized for agentic AI velocity, sub-millisecond edge latency, 60fps mobile experiences, and rigorous engineering stability.
+        </p>
+      </div>
+
+      <!-- Filter Tabs & Search Toolbar -->
+      <div class="tech-toolbar">
+        <div class="tech-filter-pills" role="tablist" aria-label="Technology Stack Categories">
+          <button class="filter-pill active" role="tab" aria-selected="true" data-filter="all">
+            <span>All</span>
+            <span class="pill-count">(22)</span>
+          </button>
+          <button class="filter-pill" role="tab" aria-selected="false" data-filter="ai">
+            <span>Applied AI &amp; Agents</span>
+            <span class="pill-count">(6)</span>
+          </button>
+          <button class="filter-pill" role="tab" aria-selected="false" data-filter="mobile">
+            <span>Mobile Engineering</span>
+            <span class="pill-count">(4)</span>
+          </button>
+          <button class="filter-pill" role="tab" aria-selected="false" data-filter="web">
+            <span>Web Architecture</span>
+            <span class="pill-count">(4)</span>
+          </button>
+          <button class="filter-pill" role="tab" aria-selected="false" data-filter="backend">
+            <span>Backend &amp; BaaS</span>
+            <span class="pill-count">(4)</span>
+          </button>
+          <button class="filter-pill" role="tab" aria-selected="false" data-filter="media">
+            <span>UI/UX &amp; Media</span>
+            <span class="pill-count">(4)</span>
+          </button>
+        </div>
+
+        <div class="tech-search-container">
+          <input type="text" id="tech-search-input" class="tech-search-input" placeholder="Filter capabilities (e.g. LangGraph, MCP, Flutter)..." aria-label="Search tech capabilities">
+          <button id="btn-clear-search" class="tech-search-clear" aria-label="Clear search input">✕</button>
+        </div>
+      </div>
+
+      <!-- Tech Cards Grid -->
+      <div class="tech-grid" id="tech-grid">
+        <!-- 1. LangGraph & Agentic Loops -->
+        <div class="tech-card" data-category="ai" data-keywords="langgraph langchain multi-agent autonomous agents state graph reasoning loop tools llm python">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            </div>
+            <span class="tech-level-pill hot">Cutting Edge 2026</span>
+          </div>
+          <h4 class="tech-name">LangGraph &amp; Agentic Loops</h4>
+          <span class="tech-category-label">Applied AI &amp; Agents</span>
+          <p class="tech-context">Multi-agent cyclic graph execution, autonomous tool orchestration, persistent memory checkpoints, and human-in-the-loop review boundaries.</p>
+        </div>
+
+        <!-- 2. Model Context Protocol (MCP) -->
+        <div class="tech-card" data-category="ai" data-keywords="mcp model context protocol anthropic tools api integration llm secure sandbox context stdio sse">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line><path d="M12 10v4"></path><path d="M10 12h4"></path></svg>
+            </div>
+            <span class="tech-level-pill hot">Cutting Edge 2026</span>
+          </div>
+          <h4 class="tech-name">Model Context Protocol (MCP)</h4>
+          <span class="tech-category-label">Applied AI &amp; Agents</span>
+          <p class="tech-context">Universal open standard protocol bridging LLMs directly with local file systems, production databases, git repos, and internal company microservices.</p>
+        </div>
+
+        <!-- 3. LlamaIndex & Hybrid Vector RAG -->
+        <div class="tech-card" data-category="ai" data-keywords="llamaindex rag retrieval augmented generation vector embeddings reranking semantic search cohere bm25">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">LlamaIndex &amp; Hybrid RAG</h4>
+          <span class="tech-category-label">Applied AI &amp; Agents</span>
+          <p class="tech-context">Advanced context augmentation combining dense embeddings with BM25 sparse keyword search, Cross-Encoder reranking, and citation-backed extraction.</p>
+        </div>
+
+        <!-- 4. Python & FastAPI -->
+        <div class="tech-card" data-category="ai" data-keywords="fastapi python pydantic sse streaming token async ai backend microservices rest">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">FastAPI &amp; Async Streaming</h4>
+          <span class="tech-category-label">Applied AI &amp; Agents</span>
+          <p class="tech-context">High-throughput Python 3.12 endpoints with Server-Sent Events (SSE) token streaming, Pydantic v2 strict schemas, and non-blocking async IO.</p>
+        </div>
+
+        <!-- 5. PostgreSQL & pgvector -->
+        <div class="tech-card" data-category="ai" data-keywords="pgvector postgresql vector database embeddings similarity hnsw supabase search sql ai">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M12 12v9"></path></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">PostgreSQL &amp; pgvector</h4>
+          <span class="tech-category-label">Applied AI &amp; Agents</span>
+          <p class="tech-context">Co-located relational database and high-dimensional HNSW vector index. Eliminates separate vector DB silos while keeping ACID guarantees and RLS security.</p>
+        </div>
+
+        <!-- 6. Cloudflare Workers & Hono -->
+        <div class="tech-card" data-category="ai" data-keywords="cloudflare workers hono edge runtime serverless v8 isolates ai gateway latency cache bun">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <span class="tech-level-pill hot">Cutting Edge 2026</span>
+          </div>
+          <h4 class="tech-name">Cloudflare Workers &amp; Hono</h4>
+          <span class="tech-category-label">Applied AI &amp; Agents</span>
+          <p class="tech-context">Distributed V8 isolate Edge runtime with 0ms cold starts, Smart Placement, AI Gateway caching, and lightweight TypeScript APIs powered by Hono.</p>
+        </div>
+
+        <!-- 7. Flutter -->
+        <div class="tech-card" data-category="mobile" data-keywords="flutter dart mobile ios android cross-platform">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <span class="tech-level-pill">Production Ready</span>
+          </div>
+          <h4 class="tech-name">Flutter 3.x</h4>
+          <span class="tech-category-label">Mobile Engineering</span>
+          <p class="tech-context">Cross-platform 60fps applications with custom render objects, BLoC/Riverpod architecture, and pixel-identical iOS &amp; Android parity.</p>
+        </div>
+
+        <!-- 2. Kotlin -->
+        <div class="tech-card" data-category="mobile" data-keywords="kotlin android native channels jni gradle">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"></rect><circle cx="12" cy="17" r="1"></circle></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">Native Android Kotlin</h4>
+          <span class="tech-category-label">Mobile Engineering</span>
+          <p class="tech-context">Hardware bridge integrations, background foreground services, Jetpack libraries, and Flutter MethodChannel native extensions.</p>
+        </div>
+
+        <!-- 3. iOS Platform Channels -->
+        <div class="tech-card" data-category="mobile" data-keywords="ios swift apple platform channels coregraphics avfoundation">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 12L2.5 7.5"></path></svg>
+            </div>
+            <span class="tech-level-pill">Production Ready</span>
+          </div>
+          <h4 class="tech-name">iOS &amp; Swift Bridge</h4>
+          <span class="tech-category-label">Mobile Engineering</span>
+          <p class="tech-context">Native camera feed buffers, CoreAudio telemetry, background push notifications, and App Store guidelines compliance.</p>
+        </div>
+
+        <!-- 4. Offline-First SQLite -->
+        <div class="tech-card" data-category="mobile" data-keywords="sqlite drift room offline database storage sync">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            </div>
+            <span class="tech-level-pill">Production Ready</span>
+          </div>
+          <h4 class="tech-name">Offline-First SQLite / Drift</h4>
+          <span class="tech-category-label">Mobile Engineering</span>
+          <p class="tech-context">Conflict-free replicated data sync, reactive query streaming, schema migrations, and encrypted local vaults.</p>
+        </div>
+
+        <!-- 5. Next.js -->
+        <div class="tech-card" data-category="web" data-keywords="nextjs react web ssr app router frontend">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">Next.js &amp; React</h4>
+          <span class="tech-category-label">Web Architecture</span>
+          <p class="tech-context">App Router, Server Components, Streaming SSR, Edge runtime deployments, and sub-1.2s Core Web Vitals optimization.</p>
+        </div>
+
+        <!-- 6. TypeScript -->
+        <div class="tech-card" data-category="web" data-keywords="typescript ts strict typing typesafe generics">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">TypeScript Strict Mode</h4>
+          <span class="tech-category-label">Web Architecture</span>
+          <p class="tech-context">Zero-any strict type invariants, discriminated unions, generic API contracts, and robust schema validation with Zod.</p>
+        </div>
+
+        <!-- 7. WebGL & Canvas API -->
+        <div class="tech-card" data-category="web" data-keywords="webgl canvas html5 shaders 60fps gpu render graphics">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">WebGL &amp; HTML5 Canvas</h4>
+          <span class="tech-category-label">Web Architecture</span>
+          <p class="tech-context">Hardware-accelerated pixel manipulation, 2D/3D shaders, real-time color histograms, and 60fps rendering without jank.</p>
+        </div>
+
+        <!-- 8. Web Workers & WASM -->
+        <div class="tech-card" data-category="web" data-keywords="web workers wasm webassembly multithread performance background">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+            <span class="tech-level-pill">Production Ready</span>
+          </div>
+          <h4 class="tech-name">Web Workers &amp; WASM</h4>
+          <span class="tech-category-label">Web Architecture</span>
+          <p class="tech-context">Offloading CPU-intensive algorithmic workloads (K-Means, encryption, image decoding) off the UI main thread.</p>
+        </div>
+
+        <!-- 9. Supabase -->
+        <div class="tech-card" data-category="backend" data-keywords="supabase postgresql rls realtime baas database backend">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">Supabase &amp; PostgreSQL</h4>
+          <span class="tech-category-label">Backend &amp; BaaS</span>
+          <p class="tech-context">Row Level Security (RLS) policies, Realtime websocket broadcasting, Postgres triggers, and automated storage buckets.</p>
+        </div>
+
+        <!-- 10. Firebase -->
+        <div class="tech-card" data-category="backend" data-keywords="firebase auth firestore cloud functions fcm push">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+            </div>
+            <span class="tech-level-pill">Production Ready</span>
+          </div>
+          <h4 class="tech-name">Firebase Cloud Suite</h4>
+          <span class="tech-category-label">Backend &amp; BaaS</span>
+          <p class="tech-context">Authentication, Cloud Firestore, Firebase Cloud Messaging (FCM), Crashlytics, and serverless Cloud Functions.</p>
+        </div>
+
+        <!-- 11. Node.js & REST/GraphQL -->
+        <div class="tech-card" data-category="backend" data-keywords="nodejs express api rest graphql microservices backend">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <span class="tech-level-pill">Production Ready</span>
+          </div>
+          <h4 class="tech-name">Node.js &amp; Microservices</h4>
+          <span class="tech-category-label">Backend &amp; BaaS</span>
+          <p class="tech-context">Scalable REST &amp; GraphQL APIs, rate limiting, JWT/OAuth2 authentication, and transactional email integrations.</p>
+        </div>
+
+        <!-- 12. Redis & Edge Caching -->
+        <div class="tech-card" data-category="backend" data-keywords="redis cache edge cloudflare upstash pubsub">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <span class="tech-level-pill">Production Ready</span>
+          </div>
+          <h4 class="tech-name">Redis &amp; Edge Caching</h4>
+          <span class="tech-category-label">Backend &amp; BaaS</span>
+          <p class="tech-context">Sub-millisecond memory caching, session storage, distributed locking, and edge key-value data replication.</p>
+        </div>
+
+        <!-- 13. Figma Design Tokens -->
+        <div class="tech-card" data-category="media" data-keywords="figma tokens design system ui ux typography variables">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">Figma Design Tokens</h4>
+          <span class="tech-category-label">Media &amp; Design</span>
+          <p class="tech-context">Systematic token variables (colors, elevations, spacing), atomic component libraries, and automated Figma-to-Code sync.</p>
+        </div>
+
+        <!-- 14. Apple HIG & Material 3 -->
+        <div class="tech-card" data-category="media" data-keywords="apple hig material ui accessibility wcag ergonomics 44pt">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">Apple HIG &amp; Material 3</h4>
+          <span class="tech-category-label">Media &amp; Design</span>
+          <p class="tech-context">Strict 44pt touch ergonomics, native gesture physics, dynamic type scaling, and WCAG 2.1 AAA high-contrast standards.</p>
+        </div>
+
+        <!-- 15. Film Emulation & Color Science -->
+        <div class="tech-card" data-category="media" data-keywords="color science film lut photography histogram k-means aperture">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </div>
+            <span class="tech-level-pill">Mastery</span>
+          </div>
+          <h4 class="tech-name">Color Science &amp; Film LUTs</h4>
+          <span class="tech-category-label">Media &amp; Design</span>
+          <p class="tech-context">Portra/Velvia emulation curves, 3D LUT matrix mapping, photographic grain synthesis, and live histogram generation.</p>
+        </div>
+
+        <!-- 16. Motion & Micro-interactions -->
+        <div class="tech-card" data-category="media" data-keywords="motion micro-interactions animation 60fps springs physics">
+          <div class="tech-card-header">
+            <div class="tech-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            </div>
+            <span class="tech-level-pill">Production Ready</span>
+          </div>
+          <h4 class="tech-name">Motion &amp; 60fps Micro-interactions</h4>
+          <span class="tech-category-label">Media &amp; Design</span>
+          <p class="tech-context">Tactile haptic feedback triggers, spring physics, smooth page transitions, and zero-layout-shift (CLS) states.</p>
+        </div>
+      </div>
+
+      <!-- Empty State View (Design Spec 5.1) -->
+      <div class="tech-empty-state" id="tech-empty-state" role="status" aria-live="polite">
+        <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+        </svg>
+        <h4 class="empty-state-title">No matching capabilities found</h4>
+        <p class="empty-state-body">Try clearing your search query or selecting another category to view our full technology catalog.</p>
+        <button class="btn-secondary min-touch" id="btn-reset-filters">
+          Reset All Filters
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ========================================================================
+       The 4-Pillar Studio Workflow
+       ======================================================================== -->
+  <section class="section" id="workflow">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow-badge">Precision Process</span>
+        <h2 class="section-title">The 4-Pillar Studio Workflow</h2>
+        <p class="section-subtitle">
+          How MeCod Labs takes high-stakes concepts from blank canvas to battle-tested, zero-defect production.
+        </p>
+      </div>
+
+      <div class="workflow-grid">
+        <!-- Pillar 1 -->
+        <div class="workflow-card">
+          <div class="workflow-step-num">01</div>
+          <h3 class="workflow-title">Discovery &amp; Specs</h3>
+          <span class="workflow-subtitle">Architecture Blueprint</span>
+          <p class="workflow-desc">
+            We map comprehensive functional PRDs, entity-relationship diagrams, edge-case matrices, and API contracts before touching a single line of code.
+          </p>
+          <ul class="workflow-deliverables">
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> Functional PRD &amp; User Stories</li>
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> ERD &amp; Data Boundary Map</li>
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> Security &amp; Risk Mitigation Plan</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="workflow-card">
+          <div class="workflow-step-num">02</div>
+          <h3 class="workflow-title">UI/UX &amp; Aesthetics</h3>
+          <span class="workflow-subtitle">Design System Execution</span>
+          <p class="workflow-desc">
+            Crafting tactile, high-converting interfaces adhering strictly to the 8pt spatial grid, 60-30-10 color balance, and Apple HIG 44pt touch ergonomics.
+          </p>
+          <ul class="workflow-deliverables">
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> Tokenized Figma Design System</li>
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> Interactive Micro-Prototypes</li>
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> WCAG 2.1 AAA Accessibility Pass</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="workflow-card">
+          <div class="workflow-step-num">03</div>
+          <h3 class="workflow-title">Clean Engineering</h3>
+          <span class="workflow-subtitle">Production Development</span>
+          <p class="workflow-desc">
+            Writing modular, strictly typed code across Flutter, Android Kotlin, and Next.js. We prioritize predictable state patterns, offline caching, and sub-16ms frames.
+          </p>
+          <ul class="workflow-deliverables">
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> Strict Invariant Clean Architecture</li>
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> Real-Time Supabase &amp; Redis BaaS</li>
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> 60fps Native Hardware Acceleration</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="workflow-card">
+          <div class="workflow-step-num">04</div>
+          <h3 class="workflow-title">6-Pillar QA Audit</h3>
+          <span class="workflow-subtitle">Zero-Defect Delivery</span>
+          <p class="workflow-desc">
+            Rigorous pre-delivery audit validating functionality, edge cases, responsive viewports, security boundaries, clean telemetry, and release handoff.
+          </p>
+          <ul class="workflow-deliverables">
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> Automated E2E Regression Suite</li>
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> Zero Console Warnings Protocol</li>
+            <li class="deliverable-item"><span class="deliverable-bullet">✓</span> Clean Git Handoff &amp; CI/CD</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ========================================================================
+       Team Showcase (4 Specialized Roles)
+       ======================================================================== -->
+  <section class="section" id="team" style="background-color: var(--bg-surface-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow-badge">Specialized Talent</span>
+        <h2 class="section-title">Agile Multidisciplinary Team</h2>
+        <p class="section-subtitle">
+          No bloated agency overhead or outsourced junior handoffs. You collaborate directly with senior design-engineers and reliability specialists.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Role 1 -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          </div>
+          <h3 class="team-role-title">Principal Design-Engineer</h3>
+          <span class="team-role-alias">Code &amp; Media Synergy</span>
+          <p class="team-role-bio">
+            Bridges the gap between high-fidelity aesthetics and production code. Architects cross-platform systems, WebGL rendering, and ensures pixel-perfect fidelity.
+          </p>
+          <div class="team-skills-chips">
+            <span class="team-skill-chip">Flutter</span>
+            <span class="team-skill-chip">WebGL</span>
+            <span class="team-skill-chip">Design Tokens</span>
+            <span class="team-skill-chip">Next.js</span>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+          </div>
+          <h3 class="team-role-title">Senior UI/UX &amp; Brand Designer</h3>
+          <span class="team-role-alias">Aesthetics &amp; Ergonomics</span>
+          <p class="team-role-bio">
+            Designs modular Figma design systems, motion choreography, responsive layouts, and conversion-optimized App Store asset pipelines.
+          </p>
+          <div class="team-skills-chips">
+            <span class="team-skill-chip">Figma</span>
+            <span class="team-skill-chip">Apple HIG</span>
+            <span class="team-skill-chip">Color Science</span>
+            <span class="team-skill-chip">3D Mockups</span>
+          </div>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <h3 class="team-role-title">Senior Full-Stack Developer</h3>
+          <span class="team-role-alias">Native &amp; Cloud Systems</span>
+          <p class="team-role-bio">
+            Builds resilient Kotlin platform channels, offline SQLite synchronization, Supabase BaaS real-time replication, and secure REST/GraphQL architectures.
+          </p>
+          <div class="team-skills-chips">
+            <span class="team-skill-chip">Android Kotlin</span>
+            <span class="team-skill-chip">Supabase</span>
+            <span class="team-skill-chip">TypeScript</span>
+            <span class="team-skill-chip">PostgreSQL</span>
+          </div>
+        </div>
+
+        <!-- Role 4 -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <h3 class="team-role-title">Lead QA &amp; Reliability Specialist</h3>
+          <span class="team-role-alias">Zero-Defect Assurance</span>
+          <p class="team-role-bio">
+            Enforces the 6-Pillar QA Audit. Writes automated headless browser tests, validates multi-device touch targets, and guarantees zero console errors before handoff.
+          </p>
+          <div class="team-skills-chips">
+            <span class="team-skill-chip">Automated E2E</span>
+            <span class="team-skill-chip">6-Pillar Audit</span>
+            <span class="team-skill-chip">WCAG 2.1</span>
+            <span class="team-skill-chip">Performance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ========================================================================
+       Contact, Booking & 1-Tap Copy Studio
+       ======================================================================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-container">
+        <!-- Left: Studio Booking & Direct Contact -->
+        <div class="contact-info-col">
+          <span class="eyebrow-badge" style="align-self: flex-start;">Start an Engagement</span>
+          <h2 class="contact-studio-title">Let's build something exceptional together.</h2>
+          <p class="contact-studio-lead">
+            Available for Q4 2026 contract engagements, full-stack product builds, and technical design advisory for high-growth startups and established brands.
+          </p>
+
+          <!-- 1-Tap Email Copy Widget -->
+          <div class="email-copy-widget">
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-bottom: 2px;">Direct Email</div>
+              <span class="email-display-text" id="studio-email-text">mecodlabs@gmail.com</span>
+            </div>
+            <button class="btn-copy-email btn-copy-action min-touch" data-email="mecodlabs@gmail.com" aria-label="Copy email mecodlabs@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+
+          <!-- Channel Links -->
+          <div class="contact-channels-list">
+            <a href="mailto:mecodlabs@gmail.com" class="contact-channel-item min-touch">
+              <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Direct Inquiries: mecodlabs@gmail.com</span>
+            </a>
+            <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer" class="contact-channel-item min-touch">
+              <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+              <span>Verified Upwork Agency Profile ↗</span>
+            </a>
+            <a href="#contact" class="contact-channel-item min-touch" id="btn-schedule-call">
+              <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>Schedule 15-Min Discovery Call ↗</span>
+            </a>
+          </div>
+
+          <div class="contact-guarantees">
+            <div class="guarantee-item">
+              <span class="guarantee-check">✓</span>
+              <span>Guaranteed response within 6 hours. Zero sales reps.</span>
+            </div>
+            <div class="guarantee-item">
+              <span class="guarantee-check">✓</span>
+              <span>Overlap with US Pacific, Eastern, and European business hours.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Inquiry Form -->
+        <div class="contact-form-col">
+          <form class="inquiry-form" id="inquiry-form" novalidate>
+            <div class="form-row">
+              <div class="form-group" id="group-name">
+                <label for="input-name" class="form-label">Your Name *</label>
+                <input type="text" id="input-name" name="name" class="form-input" placeholder="Sarah Jenkins" required>
+                <span class="form-feedback">Please enter your name.</span>
+              </div>
+              <div class="form-group" id="group-email">
+                <label for="input-email" class="form-label">Work Email *</label>
+                <input type="email" id="input-email" name="email" class="form-input" placeholder="sarah@company.com" required>
+                <span class="form-feedback">Please enter a valid email address.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group" id="group-scope">
+                <label for="select-scope" class="form-label">Project Scope *</label>
+                <select id="select-scope" name="scope" class="form-select" required>
+                  <option value="" disabled selected>Select Engagement Type</option>
+                  <option value="mobile">Cross-Platform Mobile App (Flutter/Kotlin)</option>
+                  <option value="web">High-Performance Web App (Next.js/WebGL)</option>
+                  <option value="design">UI/UX Design System &amp; Brand Media</option>
+                  <option value="full">Full End-to-End Product Build</option>
+                </select>
+                <span class="form-feedback">Please select a project scope.</span>
+              </div>
+              <div class="form-group" id="group-budget">
+                <label for="select-budget" class="form-label" data-i18n="form_budget_label">Budget Range (USD) *</label>
+                <select id="select-budget" name="budget" class="form-select" required>
+                  <option value="" disabled selected data-i18n="opt_budget_default">Select Budget Allocation</option>
+                  <option value="tier_micro" data-i18n="opt_tier_micro">$450 – $850 (Prototype / Feature Sprint)</option>
+                  <option value="tier_mvp" data-i18n="opt_tier_mvp">$1,450 – $2,650 (Full MVP Launch Sprint)</option>
+                  <option value="tier_pod" data-i18n="opt_tier_pod">$22 – $32/hr or $1,800/mo (Dedicated Agile Pod)</option>
+                  <option value="tier_custom" data-i18n="opt_tier_custom">$3,000+ (Custom Scope / Multi-Platform)</option>
+                </select>
+                <span class="form-feedback" data-i18n="form_budget_feedback">Please select your estimated budget.</span>
+              </div>
+            </div>
+
+            <div class="form-group" id="group-message">
+              <label for="textarea-message" class="form-label">Project Details &amp; Objectives *</label>
+              <textarea id="textarea-message" name="message" class="form-textarea" placeholder="Describe your product vision, timeline, target platforms, and key milestones..." required></textarea>
+              <span class="form-feedback">Please provide brief details about your project.</span>
+            </div>
+
+            <button type="submit" class="btn-submit-inquiry min-touch" id="btn-submit-form">
+              <span>Send Project Inquiry →</span>
+            </button>
+          </form>
+
+          <!-- Success Confirmation Banner -->
+          <div class="form-success-banner" id="form-success-banner" role="status">
+            <svg class="success-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h4 class="success-title">Email Draft Prepared in Your Mail App</h4>
+            <p class="success-text">Your default email application has been launched with your project details, scope, and subject pre-composed. Simply review and click <strong>"Send"</strong> in your mail client to transmit directly to <strong>mecodlabs@gmail.com</strong>.</p>
+            <button class="btn-secondary min-touch" id="btn-reset-inquiry" style="margin-top: 8px;">Edit or Submit Another Inquiry</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ========================================================================
+       Interactive Modal: Lumina Lens Live Preview
+       ======================================================================== -->
+  <div class="modal-backdrop" id="modal-lumina" role="dialog" aria-modal="true" aria-labelledby="lumina-modal-heading" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="modal-heading" id="lumina-modal-heading">Lumina Lens — AI Creative Studio Preview</h3>
+          <span class="modal-status-badge">🟢 60fps Engine</span>
+        </div>
+        <button class="modal-close-btn min-touch" id="btn-close-lumina" aria-label="Close modal preview">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="lumina-modal-grid">
+          <!-- Left: Canvas Viewport & Filter Presets -->
+          <div class="canvas-viewport-panel">
+            <div class="canvas-container-box">
+              <canvas id="lumina-modal-canvas" width="600" height="450"></canvas>
+            </div>
+            <div class="canvas-controls-bar">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Film Stock Emulation Preset</div>
+              <div class="filter-preset-tabs">
+                <button class="preset-chip-btn active" data-preset="portra">
+                  <span>Portra 400</span>
+                  <span style="font-size: 0.625rem; opacity: 0.8;">Warm Gold</span>
+                </button>
+                <button class="preset-chip-btn" data-preset="velvia">
+                  <span>Velvia 50</span>
+                  <span style="font-size: 0.625rem; opacity: 0.8;">Vivid Green</span>
+                </button>
+                <button class="preset-chip-btn" data-preset="mono">
+                  <span>Cinematic Mono</span>
+                  <span style="font-size: 0.625rem; opacity: 0.8;">B&amp;W Contrast</span>
+                </button>
+                <button class="preset-chip-btn" data-preset="bleach">
+                  <span>Bypass Bleach</span>
+                  <span style="font-size: 0.625rem; opacity: 0.8;">Desaturated Grit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Real-time Telemetry & K-Means Inspector -->
+          <div class="telemetry-inspector">
+            <div class="telemetry-header">
+              <span class="telemetry-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Real-Time Telemetry
+              </span>
+              <span class="fps-counter-badge" id="telemetry-fps">11.4 ms / 60 FPS</span>
+            </div>
+
+            <!-- Intensity Slider -->
+            <div class="slider-group">
+              <div class="slider-label-row">
+                <span>Filter Intensity</span>
+                <span id="slider-intensity-val" class="font-mono">85%</span>
+              </div>
+              <input type="range" min="0" max="100" value="85" class="lumina-intensity-slider" id="input-filter-intensity" aria-label="Filter intensity slider">
+            </div>
+
+            <!-- K-Means Dominant Swatches -->
+            <div class="swatches-section">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px;">
+                K-Means Dominant Palette (Real-Time)
+              </div>
+              <div class="swatches-grid" id="lumina-swatches-grid">
+                <!-- Swatches rendered dynamically via JS -->
+              </div>
+              <div style="font-size: 0.6875rem; color: var(--text-muted); margin-top: 2px;">
+                Click any swatch to copy HEX to clipboard.
+              </div>
+            </div>
+
+            <!-- Technical Pipeline Stats -->
+            <div class="telemetry-stats-list">
+              <div class="telemetry-stat-row">
+                <span class="stat-key">Shader Pipeline</span>
+                <span class="stat-val">WebGL 2.0 Fragment Matrix</span>
+              </div>
+              <div class="telemetry-stat-row">
+                <span class="stat-key">Color Clustering</span>
+                <span class="stat-val">5 Centroids (Euclidean RGB)</span>
+              </div>
+              <div class="telemetry-stat-row">
+                <span class="stat-key">Worker Offload</span>
+                <span class="stat-val">Background Worker Thread</span>
+              </div>
+              <div class="telemetry-stat-row">
+                <span class="stat-key">Zero External Deps</span>
+                <span class="stat-val">100% Vanilla ES2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="lumina-lens/index.html" target="_blank" rel="noopener noreferrer" class="btn-primary min-touch" id="btn-modal-open-full">
+          Open Full Lumina Lens App ↗
+        </a>
+        <button class="btn-secondary min-touch" id="btn-modal-close-footer">Close Preview</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Interactive Modal: PulseFlow Architecture Blueprint
+       ======================================================================== -->
+  <div class="modal-backdrop" id="modal-pulseflow" role="dialog" aria-modal="true" aria-labelledby="pulseflow-modal-heading" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="modal-heading" id="pulseflow-modal-heading">PulseFlow — Architecture Blueprint</h3>
+          <span class="modal-status-badge">Cross-Platform Sync</span>
+        </div>
+        <button class="modal-close-btn min-touch" id="btn-close-pulseflow" aria-label="Close pulseflow modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="blueprint-content">
+          <div class="blueprint-layer-card">
+            <h4 class="blueprint-layer-title">Layer 1: Flutter 3 UI &amp; Fluid Gesture Engine</h4>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">BLoC-driven reactive presentation layer operating strictly at 60fps with zero junk rendering. State changes are streamed with unidirectional data flow.</p>
+          </div>
+          <div class="blueprint-layer-card">
+            <h4 class="blueprint-layer-title">Layer 2: Native Android Kotlin Platform Channels</h4>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Direct bridge into Android Foreground Services for continuous background telemetry, battery optimization, and low-latency Bluetooth LE beacons.</p>
+            <pre class="blueprint-code-well"><code>// Kotlin MethodChannel Dispatcher
+class SensorBridge(flutterEngine: FlutterEngine) {
+    private val CHANNEL = "com.mecodlabs.pulseflow/telemetry"
+    init {
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result ->
+            if (call.method == "getHardwareVitals") {
+                result.success(fetchRealtimeVitals())
+            }
+        }
+    }
+}</code></pre>
+          </div>
+          <div class="blueprint-layer-card">
+            <h4 class="blueprint-layer-title">Layer 3: Supabase BaaS &amp; PostgreSQL RLS Policies</h4>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Multi-tenant Row Level Security ensuring airtight cryptographic isolation between client workspaces, complemented by real-time WebSocket diffing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#contact" class="btn-primary min-touch" id="btn-pulseflow-hire">Discuss Mobile Engagement</a>
+        <button class="btn-secondary min-touch" id="btn-pulseflow-close-footer">Close Blueprint</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Interactive Modal: VividAura Design Case Study
+       ======================================================================== -->
+  <div class="modal-backdrop" id="modal-vividaura" role="dialog" aria-modal="true" aria-labelledby="vividaura-modal-heading" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="modal-heading" id="vividaura-modal-heading">VividAura — Visual Identity &amp; Design Case Study</h3>
+          <span class="modal-status-badge">Design Ops</span>
+        </div>
+        <button class="modal-close-btn min-touch" id="btn-close-vividaura" aria-label="Close vividaura modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="blueprint-content">
+          <div class="blueprint-layer-card">
+            <h4 class="blueprint-layer-title">1. The 8pt Spatial Token Matrix</h4>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Complete modular token system mapped to CSS Custom Properties and Figma Tokens Studio. Ensures exact parity between visual design and code release.</p>
+          </div>
+          <div class="blueprint-layer-card">
+            <h4 class="blueprint-layer-title">2. WCAG 2.1 AAA Color Contrast Rigor</h4>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Every primary and secondary text combination verified with minimum 9.6:1 AAA ratio against porcelain surfaces, guaranteeing effortless readability across bright sunlight and dark settings.</p>
+          </div>
+          <div class="blueprint-layer-card">
+            <h4 class="blueprint-layer-title">3. App Store Visual Conversion Pipeline</h4>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Automated 3D device screenshot pipeline creating localized, high-resolution preview graphics for 6.7" iPhone and 12.9" iPad, resulting in a +38% conversion uplift.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#contact" class="btn-primary min-touch" id="btn-vividaura-hire">Request Design Consultation</a>
+        <button class="btn-secondary min-touch" id="btn-vividaura-close-footer">Close Case Study</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Toast Notification Container
+       ======================================================================== -->
+  <div class="toast-container" id="toast-container" role="status" aria-live="polite">
+    <div class="toast" id="toast-message">
+      <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      <span id="toast-text">Email copied to clipboard (mecodlabs@gmail.com)</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="brand-lockup">
+            <svg class="brand-icon" width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#4F46E5" fill-opacity="0.08"/>
+              <path d="M14 13L8 20L14 27" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 11L18 29" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="20" cy="20" r="2.5" fill="#10B981"/>
+              <path d="M26 13L32 20L26 27" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="brand-text" style="font-size: 1.1rem;">
+              <span class="brand-me">Me</span><span class="brand-cod">Cod</span><span class="brand-labs">Labs</span>
+            </span>
+          </div>
+          <p class="footer-tagline">Lean Team. AI Velocity. Zero-Defect Engineering.</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="#work" class="footer-link">Work</a></li>
+          <li><a href="#workflow" class="footer-link">Philosophy</a></li>
+          <li><a href="#stack" class="footer-link">Stack</a></li>
+          <li><a href="#team" class="footer-link">Team</a></li>
+          <li><a href="#contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 MeCod Labs. All rights reserved. Precision Software &amp; Media Studio.</span>
+        <button class="back-to-top-btn min-touch" id="btn-back-to-top" aria-label="Scroll to top of page">
+          <span>Back to Top ↑</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Application Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
