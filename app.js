@@ -708,11 +708,12 @@ Looking forward to discussing further.`;
   });
 
   /* ==========================================================================
-     Multi-Language (EN/VI) & Geo-IP Auto Detection (ML-08)
+     Multi-Language (EN/VI) & Multi-Tier Region Detection (ML-08 / ML-11 Fix)
      ========================================================================== */
   const TRANSLATIONS = {
     en: {
       nav_work: "Work",
+      nav_pricing: "Pricing",
       nav_philosophy: "Philosophy",
       nav_stack: "Stack",
       nav_team: "Team",
@@ -734,7 +735,6 @@ Looking forward to discussing further.`;
       metric_3_lbl: "Strict QA & Typesafe",
       metric_3_desc: "Zero-defect releases with automated E2E testing",
       toast_lang_switched: "✓ Switched to English",
-nav_pricing: "Pricing",
       pricing_eyebrow: "Transparent Launch Sprints",
       pricing_title: "Affordable, Fast, AI-Accelerated Engineering",
       pricing_subtitle: "Straightforward sprint packages with zero agency markup. High-velocity development for early-stage founders and lean teams backed by 100% milestone-based escrow safety.",
@@ -761,7 +761,7 @@ nav_pricing: "Pricing",
       tier_3_duration: "Flexible Weekly Bandwidth",
       tier_3_title: "Dedicated Agile Pod",
       tier_3_rate: "/ hr",
-      tier_3_alt: "or ,800/mo retainer",
+      tier_3_alt: "or $1,800/mo retainer",
       tier_3_desc: "On-demand senior engineering pod that ships weekly iterations directly to your staging environment.",
       tier_3_f1: "20–30 hours/week dedicated design-dev bandwidth",
       tier_3_f2: "Daily async video & Telegram/Slack updates",
@@ -788,9 +788,9 @@ nav_pricing: "Pricing",
       comp_r1_solo: "Unpredictable (High ghosting risk)",
       comp_r1_mecod: "3 – 10 Days (AI-Augmented)",
       comp_r2_lbl: "Typical MVP Cost",
-      comp_r2_agency: ",000 – ,000+",
-      comp_r2_solo: ",000 – ,000",
-      comp_r2_mecod: ",450 – ,650 (Introductory)",
+      comp_r2_agency: "$15,000 – $30,000+",
+      comp_r2_solo: "$2,000 – $4,000",
+      comp_r2_mecod: "$1,450 – $2,650 (Introductory)",
       comp_r3_lbl: "Communication",
       comp_r3_agency: "4 layers of sales reps & PMs",
       comp_r3_solo: "Hit or miss, timezone friction",
@@ -805,15 +805,16 @@ nav_pricing: "Pricing",
       comp_r5_mecod: "Flutter 3, Next.js, Supabase, AI",
       form_budget_label: "Budget Range (USD) *",
       opt_budget_default: "Select Budget Allocation",
-      opt_tier_micro: " –  (Prototype / Feature Sprint)",
-      opt_tier_mvp: ",450 – ,650 (Full MVP Launch Sprint)",
-      opt_tier_pod: " – /hr or ,800/mo (Dedicated Agile Pod)",
-      opt_tier_custom: ",000+ (Custom Scope / Multi-Platform)",
+      opt_tier_micro: "$450 – $850 (Prototype / Feature Sprint)",
+      opt_tier_mvp: "$1,450 – $2,650 (Full MVP Launch Sprint)",
+      opt_tier_pod: "$22 – $32/hr or $1,800/mo (Dedicated Agile Pod)",
+      opt_tier_custom: "$3,000+ (Custom Scope / Multi-Platform)",
       form_budget_feedback: "Please select your estimated budget.",
-      toast_sprint_selected: "✓ Selected Sprint package! Complete your details below.",
+      toast_sprint_selected: "✓ Selected Sprint package! Complete your details below."
     },
     vi: {
       nav_work: "Dự án",
+      nav_pricing: "Bảng giá",
       nav_philosophy: "Triết lý",
       nav_stack: "Công nghệ",
       nav_team: "Đội ngũ",
@@ -835,7 +836,6 @@ nav_pricing: "Pricing",
       metric_3_lbl: "Kiểm định QA Nghiêm ngặt",
       metric_3_desc: "Bàn giao không lỗi với kiểm thử tự động E2E",
       toast_lang_switched: "✓ Đã chuyển sang Tiếng Việt",
-nav_pricing: "Bảng giá",
       pricing_eyebrow: "Gói Sprint Chào Sân Minh Bạch",
       pricing_title: "Chi Phí Tối Ưu, Thần Tốc, Tăng Tốc Bởi AI",
       pricing_subtitle: "Các gói sprint rõ ràng, không phụ phí agency. Tốc độ vượt trội cho nhà sáng lập khởi nghiệp và các đội ngũ tinh gọn, bảo chứng an toàn 100% theo Milestone Escrow.",
@@ -862,7 +862,7 @@ nav_pricing: "Bảng giá",
       tier_3_duration: "Thời gian linh hoạt theo tuần",
       tier_3_title: "Nhóm Kỹ Thuật Chuyên Trách",
       tier_3_rate: "/ giờ",
-      tier_3_alt: "hoặc ,800/tháng trọn gói",
+      tier_3_alt: "hoặc $1,800/tháng trọn gói",
       tier_3_desc: "Đội ngũ senior theo yêu cầu, liên tục bàn giao các bản cập nhật hàng tuần lên môi trường staging.",
       tier_3_f1: "20–30 giờ/tuần chuyên trách thiết kế & lập trình",
       tier_3_f2: "Cập nhật video async & trao đổi Telegram/Slack hàng ngày",
@@ -889,9 +889,9 @@ nav_pricing: "Bảng giá",
       comp_r1_solo: "Không đoán trước (Dễ bùng kèo)",
       comp_r1_mecod: "3 – 10 Ngày (Tăng tốc bởi AI)",
       comp_r2_lbl: "Chi phí MVP tiêu chuẩn",
-      comp_r2_agency: ",000 – ,000+",
-      comp_r2_solo: ",000 – ,000",
-      comp_r2_mecod: ",450 – ,650 (Giá chào sân)",
+      comp_r2_agency: "$15,000 – $30,000+",
+      comp_r2_solo: "$2,000 – $4,000",
+      comp_r2_mecod: "$1,450 – $2,650 (Giá chào sân)",
       comp_r3_lbl: "Giao tiếp làm việc",
       comp_r3_agency: "4 tầng nấc sales & quản lý",
       comp_r3_solo: "Hên xui, lệch múi giờ",
@@ -906,12 +906,12 @@ nav_pricing: "Bảng giá",
       comp_r5_mecod: "Flutter 3, Next.js, Supabase, AI",
       form_budget_label: "Mức Ngân Sách Dự Kiến (USD) *",
       opt_budget_default: "Chọn Mức Ngân Sách",
-      opt_tier_micro: " –  (Sprint Tạo Bản Mẫu)",
-      opt_tier_mvp: ",450 – ,650 (Sprint Ra Mắt Full MVP)",
-      opt_tier_pod: " – /giờ hoặc ,800/tháng (Pod Chuyên Trách)",
-      opt_tier_custom: ",000+ (Yêu cầu Tùy biến / Đa nền tảng)",
+      opt_tier_micro: "$450 – $850 (Sprint Tạo Bản Mẫu)",
+      opt_tier_mvp: "$1,450 – $2,650 (Sprint Ra Mắt Full MVP)",
+      opt_tier_pod: "$22 – $32/giờ hoặc $1,800/tháng (Pod Chuyên Trách)",
+      opt_tier_custom: "$3,000+ (Yêu cầu Tùy biến / Đa nền tảng)",
       form_budget_feedback: "Vui lòng chọn mức ngân sách ước tính.",
-      toast_sprint_selected: "✓ Đã chọn gói Sprint! Hãy điền thông tin chi tiết bên dưới.",
+      toast_sprint_selected: "✓ Đã chọn gói Sprint! Hãy điền thông tin chi tiết bên dưới."
     }
   };
 
@@ -946,36 +946,98 @@ nav_pricing: "Bảng giá",
     });
   }
 
-  async function initLanguageAndGeoIP() {
-    // 1. Check if user already manually selected a language
-    const saved = localStorage.getItem('mecod_preferred_lang');
-    if (saved === 'vi' || saved === 'en') {
-      applyLanguage(saved);
-      return;
-    }
+  /**
+   * Fast, multi-tiered Vietnam regional detection
+   * Tier 1: Instant client-side timezone & locale heuristic (0ms latency)
+   * Tier 2: Realtime Geo-IP lookup via api.country.is & freeipapi.com
+   */
+  function isVietnamClientContext() {
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      if (/saigon|ho_chi_minh|hanoi/i.test(tz)) {
+        return true;
+      }
+      const offset = new Date().getTimezoneOffset();
+      if (offset === -420) {
+        // GMT+7 (Vietnam, Bangkok, Indochina)
+        const langs = navigator.languages || [navigator.language || ''];
+        for (const l of langs) {
+          if (/vi|-vn/i.test(l)) return true;
+        }
+        return true; // Default GMT+7 in our context maps to Vietnam region
+      }
+    } catch (e) {}
 
-    // 2. Auto-detect via Geo-IP check (Timeout 2s)
-    let detected = 'en';
+    try {
+      const langs = navigator.languages || [navigator.language || ''];
+      for (const l of langs) {
+        if (/^vi|-vn/i.test(l)) return true;
+      }
+    } catch (e) {}
+
+    return false;
+  }
+
+  async function queryGeoIPCountry() {
+    // 1. Primary: api.country.is (Fast, Cloudflare Edge, open CORS)
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 2000);
-      const res = await fetch('https://ipapi.co/json/', { signal: controller.signal });
+      const res = await fetch('https://api.country.is/', { signal: controller.signal });
       clearTimeout(timeoutId);
       if (res.ok) {
         const data = await res.json();
-        if (data.country_code === 'VN' || (data.country_name && data.country_name.toLowerCase().includes('vietnam'))) {
-          detected = 'vi';
-          console.log('[MeCod i18n] Geo-IP detected Vietnam IP -> Auto-switching to VI');
+        if (data && data.country) {
+          return String(data.country).toUpperCase();
         }
       }
-    } catch (e) {
-      // Offline or blocked, fallback to browser language
-      if (navigator.language && navigator.language.toLowerCase().startsWith('vi')) {
-        detected = 'vi';
+    } catch (e) {}
+
+    // 2. Secondary fallback: freeipapi.com
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2000);
+      const res = await fetch('https://freeipapi.com/api/json', { signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (res.ok) {
+        const data = await res.json();
+        if (data) {
+          const code = String(data.countryCode || '').toUpperCase();
+          if (code === 'VN' || /vietnam/i.test(data.countryName || '')) return 'VN';
+          return code;
+        }
       }
+    } catch (e) {}
+
+    return null;
+  }
+
+  async function initLanguageAndGeoIP() {
+    // 1. If user previously manually clicked a language toggle, respect their choice
+    const explicitChoice = localStorage.getItem('mecod_user_explicit_lang');
+    const savedLang = localStorage.getItem('mecod_preferred_lang');
+    if (explicitChoice === 'true' && (savedLang === 'vi' || savedLang === 'en')) {
+      applyLanguage(savedLang);
+      return;
     }
 
-    applyLanguage(detected);
+    // 2. Immediate zero-latency heuristic check (Timezone: Asia/Saigon, GMT+7)
+    const isVN = isVietnamClientContext();
+    if (isVN) {
+      applyLanguage('vi');
+    }
+
+    // 3. Confirm with real-time Geo-IP API
+    try {
+      const country = await queryGeoIPCountry();
+      if (country === 'VN') {
+        applyLanguage('vi');
+      } else if (country && country !== 'VN' && !isVN) {
+        applyLanguage('en');
+      }
+    } catch (e) {
+      // Keep heuristic decision
+    }
   }
 
   // Setup click listeners for language switcher buttons
@@ -984,12 +1046,12 @@ nav_pricing: "Bảng giá",
       const targetLang = btn.getAttribute('data-lang');
       if (targetLang && targetLang !== currentLang) {
         localStorage.setItem('mecod_preferred_lang', targetLang);
+        localStorage.setItem('mecod_user_explicit_lang', 'true'); // User made explicit choice
         applyLanguage(targetLang);
         showToast(TRANSLATIONS[targetLang].toast_lang_switched);
       }
     });
   });
-
 
   // Setup click listeners for pricing action buttons
   document.querySelectorAll('.btn-pricing-action').forEach(btn => {
@@ -1017,6 +1079,7 @@ nav_pricing: "Bảng giá",
 
   // Run initialization
   initLanguageAndGeoIP();
+
 
   console.log('MeCod Labs Portfolio Engine initialized successfully (60fps, Zero Errors).');
 })();
