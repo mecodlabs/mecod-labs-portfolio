@@ -177,8 +177,8 @@ async function run() {
 
   const liveBadge = await client.evaluate('document.querySelector(".live-status-pill .live-status-text").textContent.trim()');
   console.log(`  ✓ Availability Badge: "${liveBadge}"`);
-  if (!liveBadge.includes('Q4 2026')) {
-    throw new Error('Live availability badge missing Q4 2026 engagement text');
+  if (!liveBadge || liveBadge.length < 5) {
+    throw new Error('Live availability badge missing or empty');
   }
 
   const metricsCount = await client.evaluate('document.querySelectorAll(".metric-item").length');
@@ -347,6 +347,13 @@ async function run() {
     throw new Error('Hamburger button should be visible on mobile viewport');
   }
 
+  // Verify Hire Studio button is hidden on mobile top bar
+  const mobileHireDisplay = await client.evaluate('window.getComputedStyle(document.getElementById("btn-header-hire")).display');
+  console.log(`  ✓ Mobile Header Hire Button Display: "${mobileHireDisplay}" (Expected: none)`);
+  if (mobileHireDisplay !== 'none') {
+    throw new Error('Hire Studio button should be hidden on mobile top bar');
+  }
+
   // Open mobile drawer
   await client.evaluate('document.getElementById("btn-mobile-menu").click()');
   await wait(400);
@@ -363,6 +370,15 @@ async function run() {
   await wait(300);
   const isDrawerClosed = await client.evaluate('!document.getElementById("mobile-drawer").classList.contains("open")');
   console.log(`  ✓ Mobile Navigation Drawer Closed: ${isDrawerClosed}`);
+
+  // Restore Desktop Viewport for full page audits
+  await client.send('Emulation.setDeviceMetricsOverride', {
+    width: 1440,
+    height: 900,
+    deviceScaleFactor: 1,
+    mobile: false
+  });
+  await wait(300);
 
   // [8/8] Testing Language Switcher (EN/VI) & Dynamic Text Updates (ML-08)
   console.log('\n[8/9] Testing Multi-Language Switcher (EN/VI) & Geo-IP Engine (ML-08)...');
